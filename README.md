@@ -1,4 +1,4 @@
-# Expo Router Auth Template
+# Cinema Swipe
 
 [![jongan69 - ExpoRouterAuthTemplate](https://img.shields.io/static/v1?label=jongan69&message=ExpoRouterAuthTemplate&color=blue&logo=github)](https://github.com/jongan69/ExpoRouterAuthTemplate "Go to GitHub repo")
 
