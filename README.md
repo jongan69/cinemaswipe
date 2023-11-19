@@ -9,7 +9,7 @@
 ![Vercel deployments](https://img.shields.io/github/deployments/jongan69/cinemaswipe/production?style=flat&logoColor=white&label=Vercel%20Deployment)
 [![EAS Update](https://github.com/jongan69/cinemaswipe/actions/workflows/update.yml/badge.svg)](https://github.com/jongan69/cinemaswipe/actions/workflows/update.yml)
 [![CodeQL](https://github.com/jongan69/cinemaswipe/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/jongan69/cinemaswipe/actions/workflows/codeql.yml)
-[![pages-build-deployment](https://github.com/jongan69/cinemaswipe/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/jongan69/cinemaswipe/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/jongan69/cinemaswipe/actions/workflows/pages/pages-build-deployment/badge.svg?branch=master)](https://github.com/jongan69/cinemaswipe/actions/workflows/pages/pages-build-deployment)
 
 This is a template for building a mobile app with Expo, featuring authentication using Expo Router for routing. The project is configured for deployment on Vercel, making it easy to host your app in the cloud and dynamic on mobile.
 
