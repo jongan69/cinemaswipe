@@ -1,32 +1,30 @@
 {
   "expo": {
-    "name": "expo-router-auth-template",
-    "slug": "expo-router-auth-template",
+    "name": "cinema-swipe",
+    "slug": "cinema-swipe",
     "version": "1.0.0",
     "orientation": "portrait",
-    "githubUrl": "https://github.com/jongan69/ExpoRouterAuthTemplate",
+    "githubUrl": "https://github.com/jongan69/cinemaswipe",
     "icon": "./assets/images/icon.png",
-    "scheme": "expo-router-auth-template",
+    "scheme": "cinema-swipe",
     "userInterfaceStyle": "automatic",
-    
+
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.jongan69.exporouterauthtemplate"
+      "bundleIdentifier": "com.jongan69.cinemaswipe"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.jongan69.exporouterauthtemplate"
+      "package": "com.jongan69.cinemaswipe"
     },
     "web": {
       "bundler": "metro",
@@ -40,9 +38,7 @@
         ]
       }
     },
-    "plugins": [
-      "expo-router"
-    ],
+    "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
     },
@@ -52,13 +48,7 @@
     "extra": {
       "router": {
         "origin": false
-      },
-      "eas": {
-        "projectId": "b18fcf18-4c75-4bca-b144-0a31e06958bc"
       }
-    },
-    "updates": {
-      "url": "https://u.expo.dev/b18fcf18-4c75-4bca-b144-0a31e06958bc"
     }
   }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "expo-router-auth-template",
+  "name": "cinema-swipe",
   "main": "./index.ts",
   "version": "1.0.0",
-  "homepage": "https://jongan69.github.io/ExpoRouterAuthTemplate",
+  "homepage": "https://jongan69.github.io/cinemaswipe",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

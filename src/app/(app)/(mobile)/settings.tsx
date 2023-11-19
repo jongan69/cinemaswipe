@@ -6,6 +6,7 @@ import React from 'react';
 import { useMagicSession } from '../../../auth/magicSdk';
 import * as SecureStore from 'expo-secure-store';
 import ContentCard from '../../../components/ContentCard';
+import InputField from '../../../components/InputField';
 
 async function save(value: string) {
   alert("🔐 Saving 🔐 \n" + value);
@@ -27,16 +28,23 @@ export default function SettingsScreen() {
     const { signOut }: any = useMagicSession();
     const pathname = usePathname();
     const segments = useSegments();
+    React.useEffect(() => {
+
+    })
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Settings</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <ContentCard
-          header={'Welcome to the App'}
-          highlight={`You are at ${pathname}`}
-          subtitle={`Which is ${segments}`}
-          link={'Test'}
-        />
+        <InputField
+          label={undefined}
+          icon={undefined}
+          inputType={undefined}
+          keyboardType={undefined}
+          fieldButtonLabel={undefined}
+          fieldButtonFunction={undefined}
+          value={undefined}
+          onChangeText={undefined} 
+          />
         <Text
           onPress={() => {
             // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
