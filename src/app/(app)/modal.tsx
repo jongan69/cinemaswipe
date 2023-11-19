@@ -4,23 +4,20 @@ import { Platform, StyleSheet } from 'react-native';
 import ContentCard from '../../components/ContentCard';
 import { Text, View } from '../../components/Themed';
 import ToggleThemeButton from '../../components/ToggleThemeButton';
-import { usePathname, useSegments } from 'expo-router';
 import React from 'react';
 
 export default function ModalScreen() {
-  const pathname = usePathname();
-  const segments = useSegments();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Modal</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <ContentCard
-        header={'Welcome to the App'}
-        highlight={`You are at ${pathname}`}
-        subtitle={`Which is ${segments}`}
-        link={'Test'}
+        header={'Welcome to Cinema Swipe!'}
+        highlight={`This app is designed to help you and your partner find movies to enjoy together`}
+        subtitle={`Make sure you are logged in and have a partner email saved.`}
+        link={'https://replit.com/@JonGan2/MongoAPI'}
+        linkText={'MongoDB Node API'}
       />
-
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       {Platform.OS !== 'web' && <ToggleThemeButton />}

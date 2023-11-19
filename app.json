@@ -8,13 +8,14 @@
     "icon": "./assets/images/icon.png",
     "scheme": "cinema-swipe",
     "userInterfaceStyle": "automatic",
-
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.jongan69.cinemaswipe"
@@ -38,7 +39,9 @@
         ]
       }
     },
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "experiments": {
       "typedRoutes": true
     },
@@ -48,7 +51,13 @@
     "extra": {
       "router": {
         "origin": false
+      },
+      "eas": {
+        "projectId": "bf8470d0-802b-4fc4-8768-ea749c83adc2"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/bf8470d0-802b-4fc4-8768-ea749c83adc2"
     }
   }
 }

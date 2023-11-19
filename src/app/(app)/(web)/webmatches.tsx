@@ -8,7 +8,7 @@ import React from 'react';
 
 import * as AppData from '../../../../app.json'
 
-export default function WebNotifications() {
+export default function WebMatches() {
   const { signOut }: any = useSession();
   const pathname = usePathname();
   const segments = useSegments();
@@ -17,10 +17,11 @@ export default function WebNotifications() {
       <Text style={styles.title}>Notifications</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <ContentCard
-        header={'Notifications'}
+        header={'Matches'}
         highlight={`You are at ${pathname}`}
         subtitle={`Which is ${segments}`}
         link={`${AppData.expo.githubUrl}/blob/main/src/app/${segments[0]}/${segments[1] ? `${segments[1]}/` : ''}${segments[2] ? `${segments[2]}` : ''}.tsx`}
+        linkText={''}
       />
       <Text
         onPress={() => {

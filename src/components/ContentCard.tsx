@@ -7,7 +7,7 @@ import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
 
-export default function ContentCard({  header, highlight, subtitle, link }: { header: string, highlight: string, subtitle: string, link: string }) {
+export default function ContentCard({  header, highlight, subtitle, linkText, link }: { header: string, highlight: string, subtitle: string, linkText: string, link: string }) {
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -38,7 +38,7 @@ export default function ContentCard({  header, highlight, subtitle, link }: { he
           style={styles.helpLink}
           href={link}>
           <Text style={styles.helpLinkText} lightColor={Themes.light.tint}>
-            {link}
+            {linkText}
           </Text>
         </ExternalLink>
       </View>

@@ -20,8 +20,7 @@ export default function WebNotifications() {
         header={'Notifications'}
         highlight={`You are at ${pathname}`}
         subtitle={`Which is ${segments}`}
-        link={`${AppData.expo.githubUrl}/blob/main/src/app/${segments[0]}/${segments[1] ? `${segments[1]}/` : ''}${segments[2] ? `${segments[2]}` : ''}.tsx`}
-      />
+        link={`${AppData.expo.githubUrl}/blob/main/src/app/${segments[0]}/${segments[1] ? `${segments[1]}/` : ''}${segments[2] ? `${segments[2]}` : ''}.tsx`} linkText={''}      />
       <Text
         onPress={() => {
           // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.

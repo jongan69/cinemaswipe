@@ -11,8 +11,6 @@ import InputField from '../../../components/InputField';
 
 export default function WebSettings() {
   const { signOut }: any = useSession();
-  const pathname = usePathname();
-  const segments = useSegments();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Settings</Text>
@@ -24,7 +22,7 @@ export default function WebSettings() {
         keyboardType={undefined}
         //value={connectedEmail}
         // onChangeText={text => setConnectedEmail(text)} 
-        fieldButtonLabel={undefined} fieldButtonFunction={undefined}        />
+        fieldButtonLabel={undefined} fieldButtonFunction={undefined} value={undefined} onChangeText={undefined}        />
       <Text
         onPress={() => {
           // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.

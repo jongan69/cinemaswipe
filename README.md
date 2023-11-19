@@ -1,15 +1,15 @@
 # Cinema Swipe
 
-[![jongan69 - ExpoRouterAuthTemplate](https://img.shields.io/static/v1?label=jongan69&message=ExpoRouterAuthTemplate&color=blue&logo=github)](https://github.com/jongan69/ExpoRouterAuthTemplate "Go to GitHub repo")
+[![jongan69 - cinemaswipe](https://img.shields.io/static/v1?label=jongan69&message=cinemaswipe&color=blue&logo=github)](https://github.com/jongan69/cinemaswipe "Go to GitHub repo")
 
-[![GitHub tag](https://img.shields.io/github/tag/jongan69/ExpoRouterAuthTemplate?include_prereleases=&sort=semver&color=blue)](https://github.com/jongan69/ExpoRouterAuthTemplate/releases/)
-[![issues - ExpoRouterAuthTemplate](https://img.shields.io/github/issues/jongan69/ExpoRouterAuthTemplate)](https://github.com/jongan69/ExpoRouterAuthTemplate/issues)
-[![stars - ExpoRouterAuthTemplate](https://img.shields.io/github/stars/jongan69/ExpoRouterAuthTemplate?style=social)](https://github.com/jongan69/ExpoRouterAuthTemplate)
+[![GitHub tag](https://img.shields.io/github/tag/jongan69/cinemaswipe?include_prereleases=&sort=semver&color=blue)](https://github.com/jongan69/cinemaswipe/releases/)
+[![issues - ExpoRouterAuthTemplate](https://img.shields.io/github/issues/jongan69/cinemaswipe)](https://github.com/jongan69/cinemaswipe/issues)
+[![stars - ExpoRouterAuthTemplate](https://img.shields.io/github/stars/jongan69/cinemaswipe?style=social)](https://github.com/jongan69/cinemaswipe)
 
-![Vercel deployments](https://img.shields.io/github/deployments/jongan69/ExpoRouterAuthTemplate/production?style=flat&logoColor=white&label=Vercel%20Deployment)
-[![EAS Update](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/update.yml/badge.svg)](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/update.yml)
-[![CodeQL](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/codeql.yml)
-[![pages-build-deployment](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/pages/pages-build-deployment)
+![Vercel deployments](https://img.shields.io/github/deployments/jongan69/cinemaswipe/production?style=flat&logoColor=white&label=Vercel%20Deployment)
+[![EAS Update](https://github.com/jongan69/cinemaswipe/actions/workflows/update.yml/badge.svg)](https://github.com/jongan69/cinemaswipe/actions/workflows/update.yml)
+[![CodeQL](https://github.com/jongan69/ExpoRouterAuthTemplate/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/jongan69/cinemaswipe/actions/workflows/codeql.yml)
+[![pages-build-deployment](https://github.com/jongan69/cinemaswipe/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/jongan69/cinemaswipe/actions/workflows/pages/pages-build-deployment)
 
 This is a template for building a mobile app with Expo, featuring authentication using Expo Router for routing. The project is configured for deployment on Vercel, making it easy to host your app in the cloud and dynamic on mobile.
 

@@ -5,7 +5,6 @@ import { Redirect, usePathname, useSegments } from 'expo-router';
 import React from 'react';
 import { useMagicSession } from '../../../auth/magicSdk';
 import * as SecureStore from 'expo-secure-store';
-import ContentCard from '../../../components/ContentCard';
 import InputField from '../../../components/InputField';
 
 export default function SettingsScreen() {
