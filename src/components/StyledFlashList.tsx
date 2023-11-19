@@ -1,39 +1,24 @@
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import { Text, View } from './Themed';
 import React from 'react';
 import { FlashList } from "@shopify/flash-list";
 import ListCard from './ListCard';
-import { ExternalLink } from './ExternalLink';
-
-const onSelectSwitch = (value: any) => {
-    alert('Tab Switched')
-
-};
 
 export default function StyledFlashList(props: any) {
-    console.log(props.data)
+    const [matches, refreshing, setRefreshing] = props.data
     return (
         <FlashList
-            keyExtractor={(item) => {
-                return item._id
+            keyExtractor={(item: any) => {
+                return item._id.toString();
             }}
-            renderItem={({ item }) => {
-                return (
-                    <View style={styles.listcontainer}>
-                        <Image source={{ uri: item.mage }} style={{ height: 30, width: 30 }} />
-                        <ExternalLink
-                            //style={styles.helpLink}
-                            href={`https://www.google.com/search?q=${item.movieTitle}`}>
-                            <Text
-                                lightColor="rgba(0,0,0,0.8)"
-                                darkColor="rgba(255,255,255,0.8)">
-                                {item.movieTitle}
-                            </Text>
-                        </ExternalLink>
-                    </View>
-                )
+            refreshing={refreshing}
+            onRefresh={() => {
+                setRefreshing(true);
+                setTimeout(() => {
+                    setRefreshing(false);
+                }, 2000);
             }}
+            renderItem={ListCard}
             estimatedItemSize={100}
             // onEndReached={() => {
             //   // Since FlatList is a pure component, data reference should change for a render
@@ -44,7 +29,7 @@ export default function StyledFlashList(props: any) {
             //   });
             // }}
             onEndReachedThreshold={0.2}
-            data={props.data}
+            data={matches}
         />
     );
 }

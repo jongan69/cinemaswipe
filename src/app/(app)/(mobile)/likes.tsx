@@ -21,6 +21,7 @@ export default function LikesScreen() {
     const [connectedEmail, setConnectedEmail] = React.useState("");
     const [matches, setMatches] = React.useState();
     const [onlyMatches, setOnlyMatches] = React.useState(false);
+    const [refreshing, setRefreshing] = React.useState(false);
 
     const onSelectSwitch = () => {
       setOnlyMatches(!onlyMatches)
@@ -54,20 +55,19 @@ export default function LikesScreen() {
           .then(result => setMatches(result))
       }
       getMatches()
-      console.log(matches)
-    }, [session, connectedEmail, onlyMatches])
+    }, [session, connectedEmail, onlyMatches, refreshing])
 
     return (
-      <View>
+      <View style={{ flex: 1}}>
         <CustomSwitch
           selectionMode={1}
           option1="Likes"
           option2="Matches"
           onSelectSwitch={onSelectSwitch}
         />
-        {onlyMatches && <Text style={{ alignItems: 'center', justifyContent: 'center'}}>Matches With {connectedEmail}</Text>}
+        {onlyMatches && <Text style={{ alignSelf: 'center', justifyContent: 'center'}}>Matches With {connectedEmail}</Text>}
         <Separator />
-        <StyledFlashList data={matches} />
+        <StyledFlashList data={[matches , refreshing, setRefreshing]}/>
       </View>
     );
   }
