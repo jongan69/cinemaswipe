@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from 'react-native';
+import { Button, Platform, StyleSheet } from 'react-native';
 
 import { Text, View } from '../../../components/Themed';
 import { Redirect, usePathname, useSegments } from 'expo-router';
@@ -8,16 +8,6 @@ import * as SecureStore from 'expo-secure-store';
 import ContentCard from '../../../components/ContentCard';
 import InputField from '../../../components/InputField';
 
-async function save(value: string) {
-  alert("🔐 Saving 🔐 \n" + value);
-  try {
-    await SecureStore.setItemAsync("connectedEmail", value);
-    alert("🔐 Saved 🔐 \n");
-  } catch {
-    alert("🔐 Error Saving 🔐 \n");
-  }
-}
-
 export default function SettingsScreen() {
   if (Platform.OS === 'web') {
     // Call the replace method to redirect to a new route without adding to the history.
@@ -26,11 +16,20 @@ export default function SettingsScreen() {
     return <Redirect href="/(app)/(web)/websettings" />;
   } else {
     const { signOut }: any = useMagicSession();
+    const [connectedEmail, setConnectedEmail] = React.useState("")
     const pathname = usePathname();
     const segments = useSegments();
-    React.useEffect(() => {
 
-    })
+    async function save() {
+      alert("🔐 Saving 🔐 \n" + connectedEmail);
+      try {
+        await SecureStore.setItemAsync("connectedEmail", connectedEmail);
+        alert("🔐 Saved 🔐 \n");
+      } catch {
+        alert("🔐 Error Saving 🔐 \n");
+      }
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Settings</Text>
@@ -42,9 +41,10 @@ export default function SettingsScreen() {
           keyboardType={undefined}
           fieldButtonLabel={undefined}
           fieldButtonFunction={undefined}
-          value={undefined}
-          onChangeText={undefined} 
-          />
+          value={connectedEmail}
+          onChangeText={text => setConnectedEmail(text)}
+        />
+        <Button title='Save Partner Email' onPress={save} />
         <Text
           onPress={() => {
             // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
