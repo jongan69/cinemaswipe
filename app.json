@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "expo-router-auth-template",
+    "slug": "expo-router-auth-template",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "githubUrl": "https://github.com/jongan69/ExpoRouterAuthTemplate",
+    "icon": "./assets/images/icon.png",
+    "scheme": "expo-router-auth-template",
+    "userInterfaceStyle": "automatic",
+    
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jongan69.exporouterauthtemplate"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.jongan69.exporouterauthtemplate"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "babel": {
+        "include": [
+          "@ui-kitten/components",
+          "@ui-kitten/eva-icons",
+          "@aws-amplify/ui-react-native"
+        ]
+      }
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b18fcf18-4c75-4bca-b144-0a31e06958bc"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b18fcf18-4c75-4bca-b144-0a31e06958bc"
+    }
+  }
+}
