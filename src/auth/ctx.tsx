@@ -1,17 +1,7 @@
 import 'text-encoding'
-import React, {
-    // useEffect, 
-    useState
-} from 'react';
-// import { Platform } from 'react-native';
-import { useStorageState } from './useStorageState';
+import React from 'react';
+import { useStorageState } from '../resources/hooks/useStorageState';
 import { router } from 'expo-router';
-import { ENV } from '../resources/config/env';
-// import { Magic } from "magic-sdk";
-// import { BitcoinExtension } from "@magic-ext/bitcoin";
-// import * as bitcoin from "bitcoinjs-lib";
-// import { API_KEY, ENV } from '../resources/config/env';
-// import Web3 from 'web3';
 
 // WEB AUTH
 const WebAuthContext = React.createContext<{ signIn: (email: any) => void; signOut: () => void; session?: string | null, isLoading: boolean } | null>(null);
@@ -28,38 +18,7 @@ export function useSession() {
 }
 
 export function SessionProvider(props: React.PropsWithChildren) {
-    const [env, setEnv] = React.useState(ENV.PROD);
     const [[isLoading, session], setSession] = useStorageState('session');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const [publicAddress, setPublicAddress] = useState("");
-    const [destinationAddress, setDestinationAddress] = useState("");
-    const [userMetadata, setUserMetadata] = useState({});
-
-    // const magic = new Magic('YOUR_API_KEY', { 
-    //     network: "goerli",
-    //   });
-
-    //   const web3 = new Web3(magic.rpcProvider);
-    // const magic = new Magic(API_KEY[env], {
-    //     extensions: [
-    //         new BitcoinExtension({
-    //             rpcUrl: "BTC_RPC_NODE_URL",
-    //             network: "testnet",
-    //         }),
-    //     ],
-    // });
-
-    // useEffect(() => {
-    //     magic.user.isLoggedIn().then(async (magicIsLoggedIn: boolean | ((prevState: boolean) => boolean)) => {
-    //         setIsLoggedIn(magicIsLoggedIn);
-    //         if (magicIsLoggedIn) {
-    //             const metadata = await magic.user.getMetadata();
-    //             setPublicAddress(metadata.publicAddress);
-    //             setUserMetadata(metadata);
-    //         }
-    //     });
-    // }, [isLoggedIn]);
 
     return (
         <WebAuthContext.Provider

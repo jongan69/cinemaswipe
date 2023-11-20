@@ -1,11 +1,12 @@
-import { Button, Platform, StyleSheet } from 'react-native';
-
-import { Text, View } from '../../../components/Themed';
-import { Redirect, usePathname, useSegments } from 'expo-router';
 import React from 'react';
-import { useMagicSession } from '../../../auth/magicSdk';
+import { Button, Platform, StyleSheet } from 'react-native';
+import { Text, View } from '../../../components/Themed';
+import { Redirect } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
+
 import InputField from '../../../components/InputField';
+
+import { useMagicSession } from '../../../auth/magicSdk';
 
 export default function SettingsScreen() {
   if (Platform.OS === 'web') {
@@ -16,8 +17,6 @@ export default function SettingsScreen() {
   } else {
     const { signOut }: any = useMagicSession();
     const [connectedEmail, setConnectedEmail] = React.useState("")
-    const pathname = usePathname();
-    const segments = useSegments();
 
     async function save() {
       alert("🔐 Saving 🔐 \n" + connectedEmail);
@@ -34,7 +33,7 @@ export default function SettingsScreen() {
         <Text style={styles.title}>Settings</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <InputField
-          label={undefined}
+          label={connectedEmail ?? 'Connected Email'}
           icon={undefined}
           inputType={undefined}
           keyboardType={undefined}

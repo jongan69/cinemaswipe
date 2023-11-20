@@ -1,26 +1,27 @@
 import React, { useState, useMemo } from 'react';
-import { SafeAreaView, View, ImageBackground, ActivityIndicator, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import TinderCard from 'react-tinder-card'
-import { Text } from '../../../components/Themed';
+import { SafeAreaView, ImageBackground, ActivityIndicator, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { Text, View } from '../../../components/Themed';
+
+import * as SecureStore from 'expo-secure-store';
 import axios from 'axios';
 import fetch from 'node-fetch'
+import TinderCard from 'react-tinder-card'
+
 import { useMagicSession } from '../../../auth/magicSdk';
-import * as SecureStore from 'expo-secure-store';
+import { IMovie } from '../../../types/Interfaces';
 
 export default function HomeScreen() {
   const { session }: any = useMagicSession();
-
-  const [movies, setMovies] = React.useState();
-  const [page, setPage] = React.useState();
-
+  const [movies, setMovies] = React.useState<IMovie>();
+  const [page, setPage] = React.useState(0);
   const [currentTitle, setCurrentTitle] = React.useState("");
-  const [description, setDescription] = React.useState("");
+  const [description, setDescription]: any = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
-  const [error, setError] = useState()
+  const [error, setError]: any = useState()
 
-  let moviesState = movies // This fixes issues with updating movies state forcing it to use the current state and not the state that was active when the card was created.
-  const alreadyRemoved = []
-  const [lastDirection, setLastDirection] = useState()
+  let moviesState: any = movies // This fixes issues with updating movies state forcing it to use the current state and not the state that was active when the card was created.
+  const alreadyRemoved: string[] = []
+  const [lastDirection, setLastDirection]: any = useState("")
   const childRefs = useMemo(() => Array(movies?.length).fill(0).map(i => React.createRef()), [])
   const [connectedEmail, setConnectedEmail] = React.useState("");
   const [matches, setMatches] = React.useState();
@@ -44,37 +45,6 @@ export default function HomeScreen() {
     getMovies();
   }, [page])
 
-  // Demo URL : 'https://jsonplaceholder.typicode.com/photos'
-
-  // Chunk Function
-  // const chunk = (data: string | any[]) => {
-  //   const chunkSize = 10;
-  //   let chunkedMovies = []
-  //   for (let i = 0; i < data.length; i += chunkSize) {
-  //     const chunk = res.data.slice(i, i + chunkSize);
-  //     chunkedMovies.push(chunk)
-  //   }
-  //   return chunkedMovies;
-  // }
-
-  // Streaming service api
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://streaming-availability.p.rapidapi.com/search/filters',
-  //   params: {
-  //     services: 'netflix',
-  //     country: 'us',
-  //     output_language: 'en',
-  //     order_by: 'original_title',
-  //     genres_relation: 'and',
-  //     show_type: 'all'
-  //   },
-  //   headers: {
-  //     'X-RapidAPI-Key': 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
-  //     'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
-  //   }
-  // };
-
   // Random Movie API
   const options = {
     method: 'GET',
@@ -97,7 +67,7 @@ export default function HomeScreen() {
   const getMovies = () => {
     return axios
       .request(options)
-      .then((res: { data: { results: React.SetStateAction<undefined>; }; }) => {
+      .then((res: { data: { results }; }) => {
         // console.log(res.data.results);
         setMovies(res.data.results)
       })
@@ -206,8 +176,8 @@ export default function HomeScreen() {
         <View style={styles.cardContainer}>
           {movies ?
             <>
-              {movies?.map((movie: { id: any; titleText: { text: string | undefined; }; primaryImage: { url: any; caption: { plainText: string | undefined; }; }; }, index: string | number) =>
-                <TinderCard ref={childRefs[index]} key={movie.id} onSwipe={(dir: any) => swiped(dir, movie.titleText.text, index)} onCardLeftScreen={() => outOfFrame(movie.titleText.text)} className="pressable">
+              {movies?.map((movie: { id: any; titleText: { text: string; }; primaryImage: { url: any; caption: { plainText: string; }; }; }, index: string | number) =>
+                <TinderCard ref={childRefs[index]} key={movie.id} onSwipe={(dir: any) => swiped(dir, movie.titleText.text, movie?.primaryImage?.url, index)} onCardLeftScreen={() => outOfFrame(movie.titleText.text)} className="pressable">
                   <TouchableOpacity onPress={() => CardPress(movie?.primaryImage?.caption.plainText)}>
                     <View style={styles.card}>
                       <ImageBackground style={styles.cardImage} source={{ uri: movie?.primaryImage?.url }}>

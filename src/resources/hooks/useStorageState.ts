@@ -3,19 +3,6 @@ import * as React from 'react';
 import { Dispatch, SetStateAction, useReducer } from 'react';
 import { Platform } from 'react-native';
 
-// Original Update Context Hook -> Some Type Errors
-// type UseStateHook<T> = [[boolean, T | null], (value?: T | null) => void];
-
-// function useAsyncState<T>(
-//     initialValue: [boolean, T | null] = [true, undefined],
-// ): UseStateHook<T> {
-//     return React.useReducer(
-//         (state: [boolean, T | null], action: T | null = null) => [false, action],
-//         initialValue,
-//     ) as UseStateHook<T>;
-// }
-
-// AI Updated Typed Context Hook Update -> No Type errors
 type UseStateHook<T> = [
     [boolean, T | null],
     Dispatch<SetStateAction<T | null>>

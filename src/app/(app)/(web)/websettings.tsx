@@ -20,9 +20,10 @@ export default function WebSettings() {
         icon={undefined}
         inputType={undefined}
         keyboardType={undefined}
-        //value={connectedEmail}
-        // onChangeText={text => setConnectedEmail(text)} 
-        fieldButtonLabel={undefined} fieldButtonFunction={undefined} value={undefined} onChangeText={undefined}        />
+        fieldButtonLabel={undefined}
+        fieldButtonFunction={undefined}
+        value={undefined}
+        onChangeText={undefined} />
       <Text
         onPress={() => {
           // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.

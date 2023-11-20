@@ -1,14 +1,9 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
-
-import Themes from '../theme/Themes';
 import { ExternalLink } from './ExternalLink';
-import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
-
 export default function ListCard({ item }: { item: any }) {
-
   return (
     <View style={styles.listcontainer}>
       <ExternalLink

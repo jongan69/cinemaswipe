@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native';
-
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { FlashList } from "@shopify/flash-list";
 import ListCard from './ListCard';
 

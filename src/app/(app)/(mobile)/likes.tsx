@@ -1,14 +1,14 @@
-import { Platform } from 'react-native';
-
-import { Redirect } from 'expo-router';
 import React, { useEffect } from 'react';
-import { useMagicSession } from '../../../auth/magicSdk';
-import * as SecureStore from 'expo-secure-store';
+import { Platform } from 'react-native';
 import { Text, View } from '../../../components/Themed';
+import * as SecureStore from 'expo-secure-store';
+import { Redirect } from 'expo-router';
+
 import CustomSwitch from '../../../components/CustomSwitch';
-import Separator from '../../../components/Seperator';
+import Separator from '../../../components/Separator';
 import StyledFlashList from '../../../components/StyledFlashList';
 
+import { useMagicSession } from '../../../auth/magicSdk';
 
 export default function LikesScreen() {
   if (Platform.OS === 'web') {
@@ -22,6 +22,10 @@ export default function LikesScreen() {
     const [matches, setMatches] = React.useState();
     const [onlyMatches, setOnlyMatches] = React.useState(false);
     const [refreshing, setRefreshing] = React.useState(false);
+
+    const matchUrl = onlyMatches
+      ? `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}&connectedUserEmail=${connectedEmail}`
+      : `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}`
 
     const onSelectSwitch = () => {
       setOnlyMatches(!onlyMatches)
@@ -44,9 +48,6 @@ export default function LikesScreen() {
 
 
     useEffect(() => {
-      const matchUrl = onlyMatches 
-      ? `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}&connectedUserEmail=${connectedEmail}`
-      : `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}`
       async function getMatches() {
         fetch(matchUrl, {
           method: 'GET',
@@ -58,16 +59,16 @@ export default function LikesScreen() {
     }, [session, connectedEmail, onlyMatches, refreshing])
 
     return (
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1 }}>
         <CustomSwitch
           selectionMode={1}
           option1="Likes"
           option2="Matches"
           onSelectSwitch={onSelectSwitch}
         />
-        {onlyMatches && <Text style={{ alignSelf: 'center', justifyContent: 'center'}}>Matches With {connectedEmail}</Text>}
+        {onlyMatches && <Text style={{ alignSelf: 'center', justifyContent: 'center' }}>Matches With {connectedEmail}</Text>}
         <Separator />
-        <StyledFlashList data={[matches , refreshing, setRefreshing]}/>
+        <StyledFlashList data={[matches, refreshing, setRefreshing]} />
       </View>
     );
   }

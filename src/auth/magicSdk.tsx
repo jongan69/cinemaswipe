@@ -1,34 +1,35 @@
 import 'text-encoding'
-import { DeepLinkPage, Magic } from '@magic-sdk/react-native-expo';
-import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { ENV, MAGIC_API_KEY } from '../resources/config/env';
+
+import { Magic } from '@magic-sdk/react-native-expo';
+import { OAuthExtension } from "@magic-ext/react-native-expo-oauth";
 import { BitcoinExtension } from "@magic-ext/bitcoin";
 import { GDKMSExtension } from "@magic-ext/gdkms";
 import { AuthExtension } from '@magic-ext/auth';
-import { ENV, API_KEY } from '../resources/config/env';
 import Web3 from 'web3'
-import React from 'react';
-import { useStorageState } from './useStorageState';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useStorageState } from '../resources/hooks/useStorageState';
 
 // MOBILE AUTH
 export const AuthContext = React.createContext<{ signIn: (email: string) => void; signOut: () => void; session?: string | null, isLoading: boolean; magicProps: any; web3?: any; } | null>(null);
 
 export function useMagicSession() {
-        const value = React.useContext(AuthContext);
-        if (process.env.NODE_ENV !== 'production') {
-            if (!value) {
-                throw new Error('useSession must be wrapped in a <SessionProvider />');
-            }
+    const value = React.useContext(AuthContext);
+    if (process.env.NODE_ENV !== 'production') {
+        if (!value) {
+            throw new Error('useSession must be wrapped in a <SessionProvider />');
         }
-        return value;
+    }
+    return value;
 }
 
 export function MagicTools(props: React.PropsWithChildren) {
     const [[isLoading, session], setSession] = useStorageState('session');
     const [env, setEnv] = React.useState(ENV.PROD);
 
-    const magic = new Magic(API_KEY[env], {
+    const magic = new Magic(MAGIC_API_KEY[env], {
         extensions: [
             new OAuthExtension(),
             new AuthExtension(),
@@ -94,9 +95,9 @@ export function MagicTools(props: React.PropsWithChildren) {
                 session,
                 isLoading,
             }}>
-                <SafeAreaProvider>
-            <magic.Relayer />
-            {props.children}
+            <SafeAreaProvider>
+                <magic.Relayer />
+                {props.children}
             </SafeAreaProvider>
         </AuthContext.Provider>
     );

@@ -6,7 +6,6 @@ import Themes from '../theme/Themes';
 import ButtonWithIcon from '../components/ButtonWithIcon';
 import {
   useTheme,
-
 } from "@react-navigation/native";
 
 const ToggleThemeButton = () => {

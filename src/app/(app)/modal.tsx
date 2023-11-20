@@ -1,15 +1,15 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
+import { Text, View } from '../../components/Themed';
 
 import ContentCard from '../../components/ContentCard';
-import { Text, View } from '../../components/Themed';
 import ToggleThemeButton from '../../components/ToggleThemeButton';
-import React from 'react';
 
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
+      <Text style={styles.title}>Hello!</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <ContentCard
         header={'Welcome to Cinema Swipe!'}

@@ -49,7 +49,7 @@ export default function AppLayout() {
         return (
             <Stack>
                 <Stack.Screen name="(mobile)" options={{ headerShown: false }} />
-                <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+                <Stack.Screen name="modal" options={{ presentation: 'modal', headerTitle: 'Welcome' }} />
             </Stack>
         );
     }

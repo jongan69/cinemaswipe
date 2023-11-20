@@ -6,7 +6,6 @@ import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
-
 export default function ContentCard({  header, highlight, subtitle, linkText, link }: { header: string, highlight: string, subtitle: string, linkText: string, link: string }) {
   return (
     <View>
