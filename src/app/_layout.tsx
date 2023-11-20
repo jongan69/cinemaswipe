@@ -64,10 +64,9 @@ export default function Root() {
               }}
             />
             <Stack.Screen
-              name="details" // This is the name of the page and must match the url from root
+              name="about" // This is the name of the page and must match the url from root
               options={{
-                // drawerLabel: "Details",
-                title: "Details",
+                title: "About",
               }}
             />
 
@@ -82,7 +81,7 @@ export default function Root() {
       <MagicTools>
         <ThemeProvider value={themeName === "light" ? DefaultTheme : DarkTheme}>
           <ThemeContext.Provider value={{ theme, toggleTheme }}>
-          {/* // Removing these wrapper would fix web refresh / hydration issues */}
+            {/* // Removing these wrapper would fix web refresh / hydration issues */}
             <IconRegistry icons={EvaIconsPack} />
             <ApplicationProvider {...eva} theme={theme}>
               <Slot />

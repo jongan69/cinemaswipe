@@ -7,7 +7,6 @@ import fetch from 'node-fetch'
 
 import { IMovie } from '../../../types/Interfaces';
 import { useSession } from '../../../auth/ctx';
-import { OPENAI_API_KEY } from '../../../resources/config/env';
 
 export default function WebHome() {
   const { session }: any = useSession();
@@ -57,15 +56,14 @@ export default function WebHome() {
     }
   };
 
-  const getMovies = async () => {
-    try {
-      const res = await axios
-        .request(options);
-      console.log(res.data.results);
-      setMovies(res.data.results);
-    } catch (err) {
-      return console.log(err);
-    }
+  const getMovies = () => {
+    return axios
+      .request(options)
+      .then((res: any) => {
+        console.log(res.data.results);
+        setMovies(res.data.results)
+      })
+      .catch((err: any) => console.log(err))
   }
 
   React.useEffect(() => {

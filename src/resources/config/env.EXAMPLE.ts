@@ -13,6 +13,7 @@ export const MAGIC_API_KEY: { [key: string]: string } = {
 export const OPENAI_API_KEY: { [key: string]: string } = {
   // USE THIS TO ACCESS process.env.OPENAI_API_KEY or use env variables in associated host
   // eas secret:create --scope project --name OPENAI_API_KEY --value YOUR_KEY --type string
+  // see https://docs.expo.dev/build-reference/variables/
   DEV: '',
   PROD: ''
 }
@@ -22,11 +23,13 @@ export const MOVIES_API: { [key: string]: Object } = {
   DEV: {
     url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
     XRapidAPIKey: '',
-    XRapidAPIHost: ''
+    XRapidAPIHost: '',
+    list: ''
   },
   PROD: {
     url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
     XRapidAPIKey: '',
-    XRapidAPIHost: 'moviesdatabase.p.rapidapi.com'
+    XRapidAPIHost: 'moviesdatabase.p.rapidapi.com',
+    list: ''
   }
 }
