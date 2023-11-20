@@ -48,7 +48,7 @@ export default function WebHome() {
     method: 'GET',
     url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
     params: {
-      list: 'most_pop_movies'
+      list: 'top_rated_series_250'
     },
     headers: {
       'X-RapidAPI-Key': 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
