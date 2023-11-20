@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 
 import ContentCard from '../../../components/ContentCard';
 import { Text, View } from '../../../components/Themed';
@@ -11,6 +11,18 @@ import InputField from '../../../components/InputField';
 
 export default function WebSettings() {
   const { signOut }: any = useSession();
+  const [connectedEmail, setConnectedEmail] = React.useState("")
+
+  async function save() {
+    alert("🔐 Saving 🔐 \n" + connectedEmail);
+    try {
+      await localStorage.setItem("connectedEmail", connectedEmail);
+      alert("🔐 Saved 🔐 \n" + connectedEmail);
+    } catch {
+      alert("🔐 Error Saving 🔐 \n");
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Settings</Text>
@@ -22,8 +34,12 @@ export default function WebSettings() {
         keyboardType={undefined}
         fieldButtonLabel={undefined}
         fieldButtonFunction={undefined}
-        value={undefined}
-        onChangeText={undefined} />
+        value={connectedEmail}
+        onChangeText={text => setConnectedEmail(text)}
+      />
+      <button onClick={save} style={{ backgroundColor: 'gray' }}>
+        Save Partner Email
+      </button>
       <Text
         onPress={() => {
           // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.

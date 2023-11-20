@@ -48,6 +48,7 @@ export default function LikesScreen() {
 
 
     useEffect(() => {
+      setMatches([])
       async function getMatches() {
         fetch(matchUrl, {
           method: 'GET',
@@ -56,7 +57,7 @@ export default function LikesScreen() {
           .then(result => setMatches(result))
       }
       getMatches()
-    }, [session, connectedEmail, onlyMatches, refreshing])
+    }, [onlyMatches, refreshing])
 
     return (
       <View style={{ flex: 1 }}>

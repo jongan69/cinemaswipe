@@ -3,10 +3,13 @@ import { SafeAreaView, View, ImageBackground, ActivityIndicator, StyleSheet, Ale
 import TinderCard from 'react-tinder-card'
 import { Text } from '../../../components/Themed';
 import axios from 'axios';
+import fetch from 'node-fetch'
+
 import { IMovie } from '../../../types/Interfaces';
+import { useSession } from '../../../auth/ctx';
 
-export default function TabTwoScreen() {
-
+export default function WebHome() {
+  const { session }: any = useSession();
   const [movies, setMovies] = React.useState<IMovie>();
   const [page, setPage] = React.useState(0);
   const [currentTitle, setCurrentTitle] = React.useState("");
@@ -117,8 +120,29 @@ export default function TabTwoScreen() {
 
 
 
-  const swiped = (direction: string, nameToDelete: string, index: string | number) => {
+  const swiped = async (direction: string, nameToDelete: string, image: string, index: string | number) => {
     console.log('removing: ' + nameToDelete + ' to the ' + direction + ', page is last index: ' + index)
+    if (direction === 'right') {
+      try {
+        const response = await axios.post('https://mongoapi.jongan2.repl.co/api/likedMovies', {
+          movieTitle: nameToDelete,
+          image,
+          description,
+          userWhoLikeEmail: session,
+          connectedUserEmail: connectedEmail
+        }, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+      
+        console.log(response.data);
+        setDescription("");
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
     if (index === 0) {
       setPage(page + 1)
     }
@@ -147,7 +171,7 @@ export default function TabTwoScreen() {
           {movies !== undefined ?
             <>
               {movies.map((movie: { id: any; titleText: { text: string; }; primaryImage: { url: any; caption: { plainText: string; }; }; }, index: string | number) =>
-                <TinderCard ref={childRefs[index]} key={movie.id} onSwipe={(dir: any) => swiped(dir, movie.titleText.text, index)} onCardLeftScreen={() => outOfFrame(movie.titleText.text)} className="pressable">
+                <TinderCard ref={childRefs[index]} key={movie.id} onSwipe={(dir: any) => swiped(dir, movie.titleText.text, movie?.primaryImage?.url, index)} onCardLeftScreen={() => outOfFrame(movie.titleText.text)} className="pressable">
                   <div>
                     <div style={styles.card}>
                       <ImageBackground style={styles.cardImage} source={{ uri: movie?.primaryImage?.url }}>
