@@ -22,7 +22,7 @@ export default function Details() {
 
         - 🎥 **Diverse Genres:** Explore a wide range of genres to suit any mood.
 
-        - 📝 **Personalized Lists:** Curate your own watchlist and favorites.
+        - 📝 **Personalized Lists:** Curate your own watch list and favorites.
 
         - 🌟 **Movie Ratings:** Get instant ratings and reviews to help you decide
         .

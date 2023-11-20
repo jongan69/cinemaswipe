@@ -9,13 +9,16 @@ import TinderCard from 'react-tinder-card'
 
 import { useMagicSession } from '../../../auth/magicSdk';
 import { IMovie } from '../../../types/Interfaces';
+import { OPENAI_API_KEY } from '../../../resources/config/env';
 
 export default function HomeScreen() {
-  const { session }: any = useMagicSession();
+  const { session, magicProps }: any = useMagicSession();
+  const { magic, web3, setEnv, env } = magicProps
+
   const [movies, setMovies] = React.useState<IMovie>();
   const [page, setPage] = React.useState(0);
   const [currentTitle, setCurrentTitle] = React.useState("");
-  const [description, setDescription]: any = React.useState("");
+  const [description, setDescription] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError]: any = useState()
 
@@ -67,7 +70,7 @@ export default function HomeScreen() {
   const getMovies = () => {
     return axios
       .request(options)
-      .then((res: { data: { results }; }) => {
+      .then((res: { data: { results: React.SetStateAction<IMovie | undefined> }; }) => {
         // console.log(res.data.results);
         setMovies(res.data.results)
       })
@@ -81,8 +84,8 @@ export default function HomeScreen() {
         try {
           console.log("Calling GPT4")
           var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = 'Bearer ' + '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'
-          const result = await fetch(url, {
+          var bearer = 'Bearer ' + OPENAI_API_KEY[env]
+          await fetch(url, {
             method: 'POST',
             headers: {
               'Authorization': bearer,
@@ -104,24 +107,21 @@ export default function HomeScreen() {
 
               "stop": "\n"
             })
-          }).then(response => response.json())
-            .then((result) => {
-              Alert.alert(
-                'Description',
-                result.choices[0].message.content
-              );
+          }).then((response: any) => response.json())
+            .then((result: { choices: { message: { content: any; }; }[]; }) => {
+              console.log(result.choices[0].message.content)
               setDescription(result.choices[0].message.content)
               setIsLoading(false);
-              return result.choices[0].message.content
             })
+            .then(() => Alert.alert(
+              'Description',
+              description
+            ))
         } catch (e) {
           console.log(e);
         }
       }
-      let result = getAiDescription()
-      if (typeof (result) === 'string') {
-        setDescription(result)
-      }
+      getAiDescription()
     }
   }, [currentTitle])
 
@@ -144,8 +144,8 @@ export default function HomeScreen() {
             userWhoLikeEmail: session,
             connectedUserEmail: connectedEmail
           })
-        }).then(response => response.json())
-          .then(result => console.log(result))
+        }).then((response: { json: () => any; }) => response.json())
+          .then((result: any) => console.log(result))
           .then(() => setDescription(""))
 
       } catch (e) {
@@ -166,7 +166,7 @@ export default function HomeScreen() {
     setMovies(moviesState)
   }
 
-  const CardPress = (Title) => {
+  const CardPress = (Title: React.SetStateAction<string>) => {
     setCurrentTitle(Title)
   }
 

@@ -6,26 +6,26 @@ export const ENV = {
 
 export const MAGIC_API_KEY: { [key: string]: string } = {
   // ADD API Keys Here
-  DEV: 'pk_live_1EF33235BCD30BEA',
-  PROD: 'pk_live_1EF33235BCD30BEA'
+  DEV: '',
+  PROD: ''
 }
 
 export const OPENAI_API_KEY: { [key: string]: string } = {
   // ADD API Keys Here
-  DEV: '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',
-  PROD: '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'
+  DEV: '',
+  PROD: ''
 }
 
 export const MOVIES_API: { [key: string]: Object } = {
   // ADD API Keys Here
   DEV: {
     url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
-    XRapidAPIKey: 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
-    XRapidAPIHost: 'moviesdatabase.p.rapidapi.com'
+    XRapidAPIKey: '',
+    XRapidAPIHost: ''
   },
   PROD: {
     url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
-    XRapidAPIKey: 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
+    XRapidAPIKey: '',
     XRapidAPIHost: 'moviesdatabase.p.rapidapi.com'
   }
 }

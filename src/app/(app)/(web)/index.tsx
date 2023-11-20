@@ -7,6 +7,7 @@ import fetch from 'node-fetch'
 
 import { IMovie } from '../../../types/Interfaces';
 import { useSession } from '../../../auth/ctx';
+import { OPENAI_API_KEY } from '../../../resources/config/env';
 
 export default function WebHome() {
   const { session }: any = useSession();
@@ -74,7 +75,7 @@ export default function WebHome() {
         try {
           console.log("Calling GPT4")
           var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = 'Bearer ' + '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'
+          var bearer = 'Bearer ' + OPENAI_API_KEY['DEV']
           const result = await fetch(url, {
             method: 'POST',
             headers: {
@@ -98,23 +99,17 @@ export default function WebHome() {
               "stop": "\n"
             })
           }).then(response => response.json())
-            .then((result) => {
-              Alert.alert(
-                'Description',
-                result.choices[0].message.content
-              );
+            .then((result: { choices: { message: { content: any; }; }[]; }) => {
+              alert(result.choices[0].message.content)
+              console.log(result.choices[0].message.content)
               setDescription(result.choices[0].message.content)
               setIsLoading(false);
-              return result.choices[0].message.content
             })
         } catch (e) {
           console.log(e);
         }
       }
-      let result = getAiDescription()
-      if (typeof (result) === 'string') {
-        setDescription(result)
-      }
+      getAiDescription()
     }
   }, [currentTitle])
 
@@ -135,7 +130,7 @@ export default function WebHome() {
             'Content-Type': 'application/json',
           },
         });
-      
+
         console.log(response.data);
         setDescription("");
       } catch (error) {
@@ -186,9 +181,17 @@ export default function WebHome() {
               )}
             </>
             : <ActivityIndicator />}
-          <button
-            style={{ zIndex: 100, bottom: 0, backgroundColor: 'green' }}
-            onClick={() => CardPress(moviesState)}>Description</button>
+          {!isLoading
+            ? <button
+              style={{ zIndex: 100, bottom: 0, backgroundColor: 'green' }}
+              onClick={() => CardPress(moviesState)}>Description</button>
+            : <ActivityIndicator />
+          }
+          {description.length > 0 &&
+            <div>
+              <p>{description}</p>
+            </div>
+          }
         </View>
       </SafeAreaView>
     </>
