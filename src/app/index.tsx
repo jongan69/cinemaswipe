@@ -37,8 +37,8 @@ export default function SignInScreen() {
       <>
         <section className="max-w-6xl px-4 py-12 mx-auto sm:px-6 lg:px-4">
           <Header
-            title="Welcome to Expo Router Web"
-            subTitle="Styled using Tailwind CSS"
+            title="Welcome to Cinema Swipe"
+            subTitle="A Movie Match Maker"
           />
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           </div>
@@ -47,19 +47,17 @@ export default function SignInScreen() {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              {/* <Image 
-              source={require('../../assets/images/icon.png')}
-              className="w-auto h-10 mx-auto"
-              /> */}
               <img
                 className="w-auto h-10 mx-auto"
-                src={`${appData.expo.githubUrl}/blob/main/assets/images/icon.png?raw=true`}
+                src={`${appData.expo.githubUrl}/blob/master/assets/images/icon.png?raw=true`}
                 alt={appData.expo.name}
               />
               <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
-                Sign in to your account 
+                Sign in to your account
               </h2>
-              <p>(There is no validation, whatever you enter saves to local state)</p>
+              <p className='mt-10 text-xl leading-9 tracking-tight text-center text-gray-900'>
+                There is no validation but without an Email and Connected Email you will get no matches
+              </p>
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -122,7 +120,7 @@ export default function SignInScreen() {
               <p className="mt-10 text-sm text-center text-gray-500">
                 Not a member?{' '}
                 <a href="/" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                  That sucks.
+                  Try the Mobile App
                 </a>
               </p>
             </div>

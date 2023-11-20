@@ -2,10 +2,10 @@ import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from 'react'
-import { useSession } from '../auth/ctx'
+import { useSession } from '../../auth/ctx'
 import { router, usePathname } from 'expo-router';
 
-import * as appData from '../../app.json';
+import * as appData from '../../../app.json';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -42,7 +42,7 @@ export default function WebNavbar() {
                 <div className="flex items-center flex-shrink-0">
                   <img
                     className="w-auto h-8"
-                    src={`${appData.expo.githubUrl}/blob/main/assets/images/icon.png?raw=true`}
+                    src={`${appData.expo.githubUrl}/blob/master/assets/images/icon.png?raw=true`}
                     alt={appData.expo.name}
                   />
                 </div>
