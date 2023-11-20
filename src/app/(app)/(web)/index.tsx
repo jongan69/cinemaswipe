@@ -75,8 +75,8 @@ export default function WebHome() {
         try {
           console.log("Calling GPT4")
           var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = 'Bearer ' + OPENAI_API_KEY['DEV']
-          const result = await fetch(url, {
+          var bearer = 'Bearer ' + process.env.OPENAI_API_KEY
+          await fetch(url, {
             method: 'POST',
             headers: {
               'Authorization': bearer,

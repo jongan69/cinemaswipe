@@ -11,7 +11,8 @@ export const MAGIC_API_KEY: { [key: string]: string } = {
 }
 
 export const OPENAI_API_KEY: { [key: string]: string } = {
-  // ADD API Keys Here
+   // USE THIS TO ACCESS process.env.OPENAI_API_KEY or use env variables in associated host
+  // eas secret:create --scope project --name OPENAI_API_KEY --value YOUR_KEY --type string
   DEV: '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',
   PROD: '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'
 }
