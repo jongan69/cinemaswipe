@@ -5,8 +5,8 @@ export const ENV = {
 }
 
 export const MAGIC_API_KEY: { [key: string]: string } = {
-  DEV: process.env.EXPO_PUBLIC_DEV_MAGIC_API_KEY,
-  PROD: process.env.EXPO_PUBLIC_PROD_MAGIC_API_KEY
+  DEV: 'pk_live_1EF33235BCD30BEA',
+  PROD: 'pk_live_1EF33235BCD30BEA'
 }
 
 export const OPENAI_API: { [key: string]: string } = {
