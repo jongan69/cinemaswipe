@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, ActivityIndicator } from 'react-native';
 import { ExternalLink } from './ExternalLink';
 import { Text, View } from './Themed';
+import CachedImage from 'expo-cached-image'
 
 export default function ListCard({ item }: { item: any }) {
   return (
@@ -9,7 +10,24 @@ export default function ListCard({ item }: { item: any }) {
       <ExternalLink
         style={styles.helpLink}
         href={`https://www.google.com/search?q=${item.movieTitle}`}>
-        <Image source={{ uri: item.image }} style={{ height: 30, width: 30 }} />
+        {/* <Image source={{ uri: item.image }} style={{ height: 30, width: 30 }} /> */}
+        <CachedImage
+          source={{
+            uri: `${typeof(item.image) === 'string' && item.image.length > 1 ? item.image : `https://www.kindpng.com/picc/m/30-300778_transparent-movie-marquee-png-movie-icon-png-flat.png`}`, // (required) -- URI of the image to be cached
+          }}
+          cacheKey={`${item._id}-thumb`} // (required) -- key to store image locally
+          placeholderContent={( // (optional) -- shows while the image is loading
+            <ActivityIndicator // can be any react-native tag
+              size="small"
+              style={{
+                flex: 1,
+                justifyContent: "center",
+              }}
+            />
+          )}
+          resizeMode="contain" // pass-through to <Image /> tag 
+          style={{ height: 30, width: 30 }}
+        />
         <Text
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">

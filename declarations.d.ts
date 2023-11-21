@@ -5,3 +5,4 @@ declare module "*.svg" {
 }
 
 declare module 'node-fetch';
+declare module 'expo-cached-image';

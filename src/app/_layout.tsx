@@ -15,7 +15,7 @@ import {
 } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
-import { Platform } from 'react-native';
+import { LogBox, Platform } from 'react-native';
 
 import useCachedResources from "../resources/hooks/useCachedResources";
 import { useState } from "react";
@@ -31,6 +31,7 @@ export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
+LogBox.ignoreLogs(['Warning: Could not find image']);
 
 export default function Root() {
   const isLoadingComplete = useCachedResources();
