@@ -9,7 +9,7 @@ import TinderCard from 'react-tinder-card'
 
 import { useMagicSession } from '../../../auth/magicSdk';
 import { IMovie } from '../../../types/Interfaces';
-import { OPENAI_API_KEY } from '../../../resources/config/env';
+const localApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || process.env.OPENAI_API_KEY
 
 export default function HomeScreen() {
   const { session, magicProps }: any = useMagicSession();
@@ -82,9 +82,9 @@ export default function HomeScreen() {
       const getAiDescription = async () => {
         setIsLoading(true)
         try {
-          console.log("Calling GPT4")
+          console.log(`Calling GPT4 with ${localApiKey ?? 'null'}` )
           var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = 'Bearer ' + process.env.OPENAI_API_KEY
+          var bearer = `Bearer ${localApiKey}`
           await fetch(url, {
             method: 'POST',
             headers: {

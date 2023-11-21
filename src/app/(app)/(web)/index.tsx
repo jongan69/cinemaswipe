@@ -8,6 +8,8 @@ import fetch from 'node-fetch'
 import { IMovie } from '../../../types/Interfaces';
 import { useSession } from '../../../auth/ctx';
 
+const localApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || process.env.OPENAI_API_KEY
+
 export default function WebHome() {
   const { session }: any = useSession();
   const [movies, setMovies] = React.useState<IMovie>();
@@ -20,6 +22,8 @@ export default function WebHome() {
   const [lastDirection, setLastDirection] = useState("")
   const childRefs = useMemo(() => Array(movies?.length).fill(0).map(i => React.createRef()), [])
   const [connectedEmail, setConnectedEmail] = React.useState("");
+
+ 
 
   let moviesState: any = movies // This fixes issues with updating movies state forcing it to use the current state and not the state that was active when the card was created.
 
@@ -71,9 +75,9 @@ export default function WebHome() {
       const getAiDescription = async () => {
         setIsLoading(true)
         try {
-          console.log("Calling GPT4")
+          console.log(`Calling GPT4 with ${localApiKey ?? 'null'}` )
           var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = 'Bearer ' + process.env.OPENAI_API_KEY
+          var bearer = `Bearer ${localApiKey}`
           await fetch(url, {
             method: 'POST',
             headers: {
