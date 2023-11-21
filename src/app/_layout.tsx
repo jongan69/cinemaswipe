@@ -24,7 +24,6 @@ import themes from "../theme/Themes";
 import 'text-encoding'
 import React from "react";
 import WebNavbar from "../components/web/Navbar.web";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import { MagicTools } from "../auth/magicSdk";
 
 export {

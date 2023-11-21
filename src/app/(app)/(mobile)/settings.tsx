@@ -9,12 +9,6 @@ import InputField from '../../../components/InputField';
 import { useMagicSession } from '../../../auth/magicSdk';
 
 export default function SettingsScreen() {
-  if (Platform.OS === 'web') {
-    // Call the replace method to redirect to a new route without adding to the history.
-    // We do this in a useFocusEffect to ensure the redirect happens every time the screen
-    // is focused.
-    return <Redirect href="/(app)/(web)/websettings" />;
-  } else {
     const { signOut }: any = useMagicSession();
     const [connectedEmail, setConnectedEmail] = React.useState("")
 
@@ -52,7 +46,6 @@ export default function SettingsScreen() {
         </Text>
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({

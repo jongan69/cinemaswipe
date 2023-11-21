@@ -73,7 +73,6 @@ export default function HomeScreen() {
     return axios
       .request(options)
       .then((res: { data: { results: React.SetStateAction<IMovie | undefined> }; }) => {
-        console.log(res.data.results);
         setMovies(res.data.results)
       })
       .catch((err: any) => setError(err))
