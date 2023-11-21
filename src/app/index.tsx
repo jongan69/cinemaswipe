@@ -44,43 +44,43 @@ export default function SignInScreen() {
           </div>
         </section>
         <section className="max-w-6xl px-4 py-12 mx-auto sm:px-6 lg:px-4">
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              {/* <img
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
+              <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+                {/* <img
                 className="w-auto h-10 pt-5 mx-auto sm:h-20"
                 src={`${appData.expo.githubUrl}/blob/master/assets/images/icon.png?raw=true`}
                 alt={appData.expo.name}
               /> */}
-              <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
-                Sign in to your account
-              </h2>
-              <p className='mt-10 text-xl leading-9 tracking-tight text-center text-gray-900'>
-                There is no validation but without an Email and Connected Email you will get no matches
-              </p>
-            </div>
+                <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
+                  Sign in to your account
+                </h2>
+                <p className='mt-10 text-xl leading-9 tracking-tight text-center text-gray-900'>
+                  There is no validation but without an Email and Connected Email you will get no matches
+                </p>
+              </div>
 
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form className="space-y-6" action="#" method="POST">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                    Email address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      onChange={e => onChangeEmail(e.target.value)}
-                      value={email}
-                    />
+              <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                <form className="space-y-6" action="#" method="POST">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                      Email address
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        onChange={e => onChangeEmail(e.target.value)}
+                        value={email}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* <div>
+                  {/* <div>
                   <div className="flex items-center justify-between">
                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                       Password
@@ -103,31 +103,34 @@ export default function SignInScreen() {
                   </div>
                 </div> */}
 
-                <div>
-                  <button
-                    type="submit"
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    onClick={() => {
-                      signIn(email),
-                        router.replace('/(app)/(web)/')
-                    }}
-                  >
-                    Sign in
-                  </button>
-                </div>
-              </form>
+                  <div>
+                    <button
+                      type="submit"
+                      className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={() => {
+                        signIn(email),
+                          router.replace('/(app)/(web)/')
+                      }}
+                    >
+                      Sign in
+                    </button>
+                  </div>
+                </form>
 
-              <p className="mt-10 text-sm text-center text-gray-500">
-                Not a member?{' '}
-                <a href={`exp://${appData.expo.updates.url}`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                  Try the Mobile App
-                </a>
-              </p>
+                <p className="mt-10 text-sm text-center text-gray-500">
+                  Not a member?{' '}
+                  {/* could also be this for the expo project page:
+                 https://expo.dev/{appData.expo.owner}/{appData.expo.slug}?serviceType=eas&distribution=expo-go&scheme=&channel=master&sdkVersion=49.0.0
+                 */}
+                  <a href={`exp://${appData.expo.updates.url}`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    Try the Mobile App
+                  </a>
+                </p>
+              </div>
             </div>
-          </div>
-          {/* <Text style={{ fontSize: 24, padding: 10 }}>Welcome to the {Platform.OS}!</Text>
+            {/* <Text style={{ fontSize: 24, padding: 10 }}>Welcome to the {Platform.OS}!</Text>
           {/* <Ionicons name="md-checkmark-circle" size={32} color="green" /> */}
-          {/* <WebComboBox/>
+            {/* <WebComboBox/>
           <InputField
             label={"Email"}
             icon={null}
@@ -145,18 +148,18 @@ export default function SignInScreen() {
           }}>
             Click here to sign in
           </a> */}
-        </View>
+          </View>
         </section>
-       
-          <div className="pt-12 text-center">
-            <a
-              className="text-base font-bold text-indigo-600"
-              href={appData.expo.githubUrl}
-            >
-              View on GitHub
-            </a>
-          </div>
-        
+
+        <div className="pt-12 text-center">
+          <a
+            className="text-base font-bold text-indigo-600"
+            href={appData.expo.githubUrl}
+          >
+            View on GitHub
+          </a>
+        </div>
+
       </>
     );
   } else {
