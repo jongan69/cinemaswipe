@@ -119,10 +119,10 @@ export default function SignInScreen() {
 
                 <p className="mt-10 text-sm text-center text-gray-500">
                   Not a member?{' '}
-                  {/* could also be this for the expo project page:
+                  {/* could also be this for open in expo go: <a href={`exp://${appData.expo.updates.url}`} className="font-s
                  https://expo.dev/{appData.expo.owner}/{appData.expo.slug}?serviceType=eas&distribution=expo-go&scheme=&channel=master&sdkVersion=49.0.0
                  */}
-                  <a href={`exp://${appData.expo.updates.url}`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                  <a href={`https://expo.dev/@${appData.expo.owner}/${appData.expo.slug}?serviceType=eas&distribution=expo-go&scheme=&channel=master&sdkVersion=49.0.0`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                     Try the Mobile App
                   </a>
                 </p>

@@ -4,6 +4,7 @@
     "slug": "cinema-swipe",
     "version": "1.0.0",
     "orientation": "portrait",
+    "owner": "jongan69",
     "githubUrl": "https://github.com/jongan69/cinemaswipe",
     "icon": "./assets/images/icon.png",
     "scheme": "cinema-swipe",
