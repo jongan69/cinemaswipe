@@ -16,9 +16,9 @@ This is a template for building a mobile app with Expo, featuring authentication
 
 ## DEMO
 
-[![View Web - Vercel](https://img.shields.io/badge/View_Web-Vercel-2ea44f?style=for-the-badge)](https://test-rn.vercel.app)
+[![View Web - Vercel](https://img.shields.io/badge/View_Web-Vercel-2ea44f?style=for-the-badge)](https://cinemaswipe.vercel.app/)
 
-[![Try Mobile with Expo Go](https://img.shields.io/badge/Try%20%20Mobile%20App%20with%20Expo%20Go-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.dev/%40jongan69/expo-router-auth-template?serviceType=eas&distribution=expo-go&scheme=&channel=main&sdkVersion=49.0.0)
+[![Try Mobile with Expo Go](https://img.shields.io/badge/Try%20%20Mobile%20App%20with%20Expo%20Go-4630EB.svg?style=flat-square&logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.dev/%40jongan69/cinema-swipe?serviceType=eas&distribution=expo-go&scheme=&channel=master&sdkVersion=49.0.0)
 
 ## Getting Started
 
