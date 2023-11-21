@@ -9,7 +9,7 @@ import { IMovie } from '../../../types/Interfaces';
 import { useSession } from '../../../auth/ctx';
 
 const localAiApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
-const localXrapidApiKey = process.env.EXPO_PUBLIC_XRapidAPIKey || 'No Key'
+const localXrapidApiKey = process.env.EXPO_PUBLIC_XRAPID_API_KEY || 'No Key'
 
 export default function WebHome() {
   const { session }: any = useSession();

@@ -5,30 +5,16 @@ export const ENV = {
 }
 
 export const MAGIC_API_KEY: { [key: string]: string } = {
-  // ADD API Keys Here
-  DEV: 'pk_live_1EF33235BCD30BEA',
-  PROD: 'pk_live_1EF33235BCD30BEA'
+  DEV: process.env.EXPO_PUBLIC_DEV_MAGIC_API_KEY,
+  PROD: process.env.EXPO_PUBLIC_PROD_MAGIC_API_KEY
 }
 
-export const OPENAI_API_KEY: { [key: string]: string } = {
-   // USE THIS TO ACCESS process.env.OPENAI_API_KEY or use env variables in associated host
-  // eas secret:create --scope project --name OPENAI_API_KEY --value YOUR_KEY --type string
-  DEV: '',
-  PROD: ''
+export const OPENAI_API: { [key: string]: string } = {
+  DEV: 'https://api.openai.com/v1/chat/completions',
+  PROD: 'https://api.openai.com/v1/chat/completions'
 }
 
 export const MOVIES_API: { [key: string]: Object } = {
-  // ADD API Keys Here
-  DEV: {
-    url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
-    XRapidAPIKey: 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
-    XRapidAPIHost: 'moviesdatabase.p.rapidapi.com',
-    list: ''
-  },
-  PROD: {
-    url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
-    XRapidAPIKey: 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
-    XRapidAPIHost: 'moviesdatabase.p.rapidapi.com',
-    list: ''
-  }
+  DEV: 'https://moviesdatabase.p.rapidapi.com/titles/random',
+  PROD: 'https://moviesdatabase.p.rapidapi.com/titles/random'
 }
