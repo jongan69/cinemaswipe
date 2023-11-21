@@ -8,7 +8,8 @@ import fetch from 'node-fetch'
 import { IMovie } from '../../../types/Interfaces';
 import { useSession } from '../../../auth/ctx';
 
-const localApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || process.env.OPENAI_API_KEY
+const localAiApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
+const localXrapidApiKey = process.env.EXPO_PUBLIC_XRapidAPIKey || 'No Key'
 
 export default function WebHome() {
   const { session }: any = useSession();
@@ -55,7 +56,7 @@ export default function WebHome() {
       list: 'top_rated_series_250'
     },
     headers: {
-      'X-RapidAPI-Key': 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
+      'X-RapidAPI-Key': localXrapidApiKey,
       'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
     }
   };
@@ -75,9 +76,9 @@ export default function WebHome() {
       const getAiDescription = async () => {
         setIsLoading(true)
         try {
-          console.log(`Calling GPT4 with ${localApiKey ?? 'null'}` )
+          console.log(`Calling GPT4 with ${localAiApiKey ?? 'null'}` )
           var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = `Bearer ${localApiKey}`
+          var bearer = `Bearer ${localAiApiKey}`
           await fetch(url, {
             method: 'POST',
             headers: {

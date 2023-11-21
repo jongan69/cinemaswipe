@@ -9,7 +9,9 @@ import TinderCard from 'react-tinder-card'
 
 import { useMagicSession } from '../../../auth/magicSdk';
 import { IMovie } from '../../../types/Interfaces';
-const localApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || process.env.OPENAI_API_KEY
+
+const localApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
+const localXrapidApiKey = process.env.EXPO_PUBLIC_XRapidAPIKey || 'No Key'
 
 export default function HomeScreen() {
   const { session, magicProps }: any = useMagicSession();
@@ -56,7 +58,7 @@ export default function HomeScreen() {
       list: 'top_rated_series_250'
     },
     headers: {
-      'X-RapidAPI-Key': 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj',
+      'X-RapidAPI-Key': localXrapidApiKey,
       'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
     }
   };
