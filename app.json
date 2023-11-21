@@ -3,6 +3,7 @@
     "name": "cinema-swipe",
     "slug": "cinema-swipe",
     "version": "1.0.0",
+    "description": "A movie match maker",
     "orientation": "portrait",
     "owner": "jongan69",
     "githubUrl": "https://github.com/jongan69/cinemaswipe",
