@@ -3,7 +3,7 @@ import { StyleSheet, Platform, SafeAreaView, TouchableOpacity, Image } from 'rea
 import { Text, View } from '../components/Themed'
 import { useSession } from '../auth/ctx';
 import { router } from 'expo-router';
-import Header from '../components/Header.web';
+import Header from '../components/web/Header.web';
 import { useMagicSession } from '../auth/magicSdk';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
@@ -43,15 +43,15 @@ export default function SignInScreen() {
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           </div>
         </section>
-
+        <section className="max-w-6xl px-4 py-12 mx-auto sm:px-6 lg:px-4">
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <img
-                className="w-auto h-10 mx-auto"
+              {/* <img
+                className="w-auto h-10 pt-5 mx-auto sm:h-20"
                 src={`${appData.expo.githubUrl}/blob/master/assets/images/icon.png?raw=true`}
                 alt={appData.expo.name}
-              />
+              /> */}
               <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
                 Sign in to your account
               </h2>
@@ -119,7 +119,7 @@ export default function SignInScreen() {
 
               <p className="mt-10 text-sm text-center text-gray-500">
                 Not a member?{' '}
-                <a href="/" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                <a href={`exp://${appData.expo.updates.url}`} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                   Try the Mobile App
                 </a>
               </p>
@@ -146,7 +146,8 @@ export default function SignInScreen() {
             Click here to sign in
           </a> */}
         </View>
-        <section>
+        </section>
+       
           <div className="pt-12 text-center">
             <a
               className="text-base font-bold text-indigo-600"
@@ -155,7 +156,7 @@ export default function SignInScreen() {
               View on GitHub
             </a>
           </div>
-        </section>
+        
       </>
     );
   } else {

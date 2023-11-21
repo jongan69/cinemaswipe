@@ -1,6 +1,6 @@
 import { View } from '../components/Themed';
 import React from 'react';
-import Header from '../components/Header.web';
+import Header from '../components/web/Header.web';
 import Banner from '../components/web/Banner.web';
 
 export default function Details() {
