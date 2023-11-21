@@ -5,7 +5,7 @@ export default function WebLayout() {
     return (
         <Stack
             screenOptions={{
-                headerShown: false
+                headerShown: true
             }} />
     )
 

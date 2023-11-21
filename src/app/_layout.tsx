@@ -1,13 +1,18 @@
+import React, { useState } from "react";
+import { LogBox, Platform } from 'react-native';
+import { Slot, Stack } from 'expo-router';
+
 import {
   ThemeProvider,
   DarkTheme,
   useTheme,
   DefaultTheme,
 } from "@react-navigation/native";
-
-import { Slot, Stack } from 'expo-router';
+import { ThemeContext } from "../theme/Theme";
+import themes from "../theme/Themes";
 
 import { SessionProvider } from '../auth/ctx';
+import { MagicTools } from "../auth/magicSdk";
 
 import {
   ApplicationProvider,
@@ -15,16 +20,9 @@ import {
 } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
-import { LogBox, Platform } from 'react-native';
 
 import useCachedResources from "../resources/hooks/useCachedResources";
-import { useState } from "react";
-import { ThemeContext } from "../theme/Theme";
-import themes from "../theme/Themes";
-import 'text-encoding'
-import React from "react";
 import WebNavbar from "../components/web/Navbar.web";
-import { MagicTools } from "../auth/magicSdk";
 
 export {
   // Catch any errors thrown by the Layout component.

@@ -7,7 +7,7 @@ import { useMagicSession } from '../../auth/magicSdk';
 
 export default function AppLayout() {
     const isWeb = Platform.OS === 'web'
-    if (isWeb) {
+    if (Platform.OS === 'web') {
         const { session, isLoading }: any = useSession();
 
         // You can keep the splash screen open, or render a loading screen like we do here.

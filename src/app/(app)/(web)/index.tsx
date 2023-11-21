@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { SafeAreaView, View, ImageBackground, ActivityIndicator, StyleSheet, Alert } from 'react-native';
+import { SafeAreaView, View, ImageBackground, ActivityIndicator, StyleSheet, Alert, Platform } from 'react-native';
 import TinderCard from 'react-tinder-card'
 import { Text } from '../../../components/Themed';
 import axios from 'axios';
@@ -12,6 +12,7 @@ const localAiApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
 const localXrapidApiKey = process.env.EXPO_PUBLIC_XRAPID_API_KEY || 'No Key'
 
 export default function WebHome() {
+  if(Platform.OS !== 'web') return null
   const { session }: any = useSession();
   const [movies, setMovies] = React.useState<IMovie>();
   const [page, setPage] = React.useState(0);

@@ -107,3 +107,5 @@ Released under [MIT](/LICENSE) by [@jongan69](https://github.com/jongan69).
 ### Notes
 
 --- Use "web3": "4.0.2" to avoid error
+--- Use npx expo start --go
+--- Use npx expo install --fix
