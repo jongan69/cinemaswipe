@@ -26,7 +26,7 @@ export default function AppLayout() {
         // This layout can be deferred because it's not the root layout.
         return (
             <Stack>
-                <Stack.Screen name="(web)" options={{ headerShown: false }} />
+                <Stack.Screen name="(web)" />
             </Stack>
         );
     } else {
