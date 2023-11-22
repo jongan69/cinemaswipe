@@ -64,7 +64,7 @@
     "react-native-svg-transformer": "^1.1.0",
     "react-native-url-polyfill": "^2.0.0",
     "react-native-web": "~0.19.6",
-    "react-native-webview": "13.2.2",
+    "react-native-webview": "13.6.2",
     "react-spring": "^9.7.3",
     "react-tinder-card": "^1.6.4",
     "text-encoding": "^0.7.0",
