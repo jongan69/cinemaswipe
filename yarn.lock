@@ -1792,6 +1792,22 @@
     semver "7.5.3"
     xml2js "0.6.0"
 
+"@expo/prebuild-config@6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@expo/prebuild-config/-/prebuild-config-6.5.0.tgz#b6e86cd959ed80dc36d605ef5504112cf5ce01cb"
+  integrity sha512-FtMk1SIJWrbSwr/5U0/ol3JJoszmaSKaWcZPy14L8DWdPm9zSOkYFyIxgr5xVCsqo+emfwszT9dNHjVNoSwNxA==
+  dependencies:
+    "@expo/config" "~8.4.0"
+    "@expo/config-plugins" "~7.6.0"
+    "@expo/config-types" "^50.0.0-alpha.1"
+    "@expo/image-utils" "0.3.22"
+    "@expo/json-file" "^8.2.37"
+    debug "^4.3.1"
+    fs-extra "^9.0.0"
+    resolve-from "^5.0.0"
+    semver "7.5.3"
+    xml2js "0.6.0"
+
 "@expo/results@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@expo/results/-/results-1.0.0.tgz#fd4b22f936ceafce23b04799f54b87fe2a9e18d1"
@@ -5535,12 +5551,19 @@ expo-secure-store@~12.3.1:
   resolved "https://registry.yarnpkg.com/expo-secure-store/-/expo-secure-store-12.3.1.tgz#7e5ba94f6e7374f132108c9feb5cc811568f3db6"
   integrity sha512-XLIgWDiIuiR0c+AA4NCWWibAMHCZUyRcy+lQBU49U6rvG+xmd3YrBJfQjfqAPyLroEqnLPGTWUX57GyRsfDOQw==
 
-expo-splash-screen@~0.20.2, expo-splash-screen@~0.20.5:
+expo-splash-screen@~0.20.2:
   version "0.20.5"
   resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.20.5.tgz#ebeba3e3977606830f74f506ab2cc25042bb7efd"
   integrity sha512-nTALYdjHpeEA30rdOWSguxn72ctv8WM8ptuUgpfRgsWyn4i6rwYds/rBXisX69XO5fg+XjHAQqijGx/b28+3tg==
   dependencies:
     "@expo/prebuild-config" "6.2.6"
+
+expo-splash-screen@~0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.24.0.tgz#45b91cf9f9f371860953ef91ae3dfa8919d5ecbd"
+  integrity sha512-e+uX4MGt+enKtd/Y0lFfibfj27aIdM1pT50rb3mCKIAfaxlPxkc6ktOCwzw9vQsFiMEgHF71xXjlatLK1LS6bQ==
+  dependencies:
+    "@expo/prebuild-config" "6.5.0"
 
 expo-status-bar@~1.6.0:
   version "1.6.0"
