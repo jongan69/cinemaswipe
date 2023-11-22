@@ -68,7 +68,7 @@
     "react-spring": "^9.7.3",
     "react-tinder-card": "^1.6.4",
     "text-encoding": "^0.7.0",
-    "web3": "4.0.2"
+    "web3": "4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
