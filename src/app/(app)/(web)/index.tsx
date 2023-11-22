@@ -12,9 +12,9 @@ const localAiApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
 const localXrapidApiKey = process.env.EXPO_PUBLIC_XRAPID_API_KEY || 'No Key'
 
 export default function WebHome() {
-  if(Platform.OS !== 'web') return null
+  if (Platform.OS !== 'web') return null
   const { session }: any = useSession();
-  const [movies, setMovies] = React.useState<IMovie>();
+  const [movies, setMovies] = React.useState<IMovie[]>();
   const [page, setPage] = React.useState(0);
   const [currentTitle, setCurrentTitle] = React.useState("");
   const [description, setDescription] = React.useState("");
@@ -75,7 +75,7 @@ export default function WebHome() {
       const getAiDescription = async () => {
         setIsLoading(true)
         try {
-          console.log(`Calling GPT4 with ${localAiApiKey ?? 'null'}` )
+          console.log(`Calling GPT4 with ${localAiApiKey ?? 'null'}`)
           var url = "https://api.openai.com/v1/chat/completions";
           var bearer = `Bearer ${localAiApiKey}`
           await fetch(url, {
@@ -153,12 +153,14 @@ export default function WebHome() {
     setMovies(moviesState)
   }
 
-  const CardPress = (moviesState: string | any[] | undefined) => {
+  const CardPress = (moviesState: IMovie[]) => {
     if (moviesState) {
       let movie = moviesState[moviesState.length - (1 + alreadyRemoved.length)]
       console.log(movie)
       setCurrentTitle(movie.titleText.text)
+      setMovies(moviesState)
     }
+
   }
 
   return (

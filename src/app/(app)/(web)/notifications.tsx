@@ -3,19 +3,17 @@ import { StyleSheet } from 'react-native';
 import ContentCard from '../../../components/ContentCard';
 import { Text, View } from '../../../components/Themed';
 import { useSession } from '../../../auth/ctx';
-import { usePathname, useSegments } from 'expo-router';
+import { useSegments } from 'expo-router';
 import React from 'react';
 
 import * as AppData from '../../../../app.json'
 import ListCard from '../../../components/ListCard';
-// import StyledFlashList from '../../../components/StyledFlashList';
-import { MDBDataTable } from 'mdbreact';
 import usePagination from '../../../resources/hooks/usePagination';
 import { ExternalLink } from '../../../components/ExternalLink';
 import { IMovie } from '../../../types/Interfaces';
 
 export default function WebNotifications() {
-  const { session, signOut }: any = useSession();
+  const { session }: any = useSession();
   const segments = useSegments();
   const [connectedEmail, setConnectedEmail] = React.useState("");
 
@@ -91,9 +89,8 @@ export default function WebNotifications() {
           subtitle={`You liked ${matches?.length} Movies`}
           link={`${AppData.expo.githubUrl}/blob/main/src/app/${segments[0]}/${segments[1] ? `${segments[1]}/` : ''}${segments[2] ? `${segments[2]}` : ''}.tsx`} linkText={''}
         />
-        {/* <StyledFlashList data={[matches, refreshing, setRefreshing]} /> */}
-        {paginatedMatches?.length > 0 && <MovieList movies={paginatedMatches} />}
       </View>
+      {paginatedMatches?.length > 0 && <MovieList movies={paginatedMatches} />}
     </>
   );
 }

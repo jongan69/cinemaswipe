@@ -19,8 +19,10 @@ export default function LikesScreen() {
     return <Redirect href="/(app)/(web)/" />;
   } else {
     const { session }: any = useSession();
-
+    const [matches, setMatches] = React.useState();
+    const [onlyMatches, setOnlyMatches] = React.useState(false);
     const [connectedEmail, setConnectedEmail] = React.useState("");
+
     useEffect(() => {
       async function getValueFor() {
         let result = await SecureStore.getItemAsync("connectedEmail");
@@ -34,10 +36,8 @@ export default function LikesScreen() {
         }
       }
       getValueFor()
-    }, [])
+    }, [onlyMatches])
 
-    const [matches, setMatches] = React.useState();
-    const [onlyMatches, setOnlyMatches] = React.useState(false);
     const [refreshing, setRefreshing] = React.useState(false);
     const matchUrl = onlyMatches
       ? `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}&connectedUserEmail=${connectedEmail}`
