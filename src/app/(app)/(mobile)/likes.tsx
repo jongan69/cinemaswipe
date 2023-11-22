@@ -9,6 +9,7 @@ import Separator from '../../../components/Separator';
 import StyledFlashList from '../../../components/StyledFlashList';
 
 import { useMagicSession } from '../../../auth/magicSdk';
+import { useSession } from '../../../auth/ctx';
 
 export default function LikesScreen() {
   if (Platform.OS === 'web') {
@@ -17,20 +18,9 @@ export default function LikesScreen() {
     // is focused.
     return <Redirect href="/(app)/(web)/" />;
   } else {
-    const { session }: any = useMagicSession();
+    const { session }: any = useSession();
+
     const [connectedEmail, setConnectedEmail] = React.useState("");
-    const [matches, setMatches] = React.useState();
-    const [onlyMatches, setOnlyMatches] = React.useState(false);
-    const [refreshing, setRefreshing] = React.useState(false);
-
-    const matchUrl = onlyMatches
-      ? `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}&connectedUserEmail=${connectedEmail}`
-      : `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}`
-
-    const onSelectSwitch = () => {
-      setOnlyMatches(!onlyMatches)
-    };
-
     useEffect(() => {
       async function getValueFor() {
         let result = await SecureStore.getItemAsync("connectedEmail");
@@ -46,9 +36,34 @@ export default function LikesScreen() {
       getValueFor()
     }, [])
 
+    const [matches, setMatches] = React.useState();
+    const [onlyMatches, setOnlyMatches] = React.useState(false);
+    const [refreshing, setRefreshing] = React.useState(false);
+    const matchUrl = onlyMatches
+      ? `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}&connectedUserEmail=${connectedEmail}`
+      : `https://mongoapi.jongan2.repl.co/api/likedmovies?userWhoLikeEmail=${session}`
 
     useEffect(() => {
-      setMatches([])
+      setMatches((): any => [])
+      async function getMatches() {
+        fetch(matchUrl, {
+          method: 'GET',
+        })
+          .then(response => response.json())
+          .then(result => setMatches(result))
+      }
+      getMatches()
+    }, [onlyMatches, refreshing])
+
+    const onSelectSwitch = () => {
+      setOnlyMatches(!onlyMatches)
+    };
+
+
+
+
+    useEffect(() => {
+      setMatches((): any => [])
       async function getMatches() {
         fetch(matchUrl, {
           method: 'GET',

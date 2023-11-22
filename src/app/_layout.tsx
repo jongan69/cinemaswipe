@@ -76,7 +76,8 @@ export default function Root() {
     // Set up the auth context and render our layout inside of it.
     return (
       // Magic SDK seems to break on Web
-      <MagicTools>
+      // <MagicTools>
+      <SessionProvider>
         <ThemeProvider value={themeName === "light" ? DefaultTheme : DarkTheme}>
           <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {/* // Removing these wrapper would fix web refresh / hydration issues */}
@@ -86,7 +87,8 @@ export default function Root() {
             </ApplicationProvider>
           </ThemeContext.Provider>
         </ThemeProvider>
-      </MagicTools>
+        </SessionProvider>
+      // </MagicTools>
     );
   }
 }

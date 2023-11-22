@@ -1,6 +1,5 @@
 import * as SecureStore from 'expo-secure-store';
-import * as React from 'react';
-import { Dispatch, SetStateAction, useReducer } from 'react';
+import React, { Dispatch, SetStateAction, useReducer } from 'react';
 import { Platform } from 'react-native';
 
 type UseStateHook<T> = [

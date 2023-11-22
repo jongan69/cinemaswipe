@@ -25,8 +25,6 @@ export default function WebHome() {
   const childRefs = useMemo(() => Array(movies?.length).fill(0).map(i => React.createRef()), [])
   const [connectedEmail, setConnectedEmail] = React.useState("");
 
- 
-
   let moviesState: any = movies // This fixes issues with updating movies state forcing it to use the current state and not the state that was active when the card was created.
 
   React.useEffect(() => {

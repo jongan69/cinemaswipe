@@ -2,7 +2,7 @@ import React from "react";
 
 import * as appData from '../../../app.json'
 
-export default function Header({ title, subTitle }) {
+export default function WebHeader({ title, subTitle }) {
     return (
         <div className="text-center">
             <h2 className="text-base font-bold text-indigo-600">

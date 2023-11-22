@@ -1,12 +1,13 @@
 interface IMovie {
-  length: any;
-  map(arg0: (movie: { id: any; titleText: { text: string; }; primaryImage: { url: any; caption: { plainText: string; }; }; }, index: string | number) => React.JSX.Element): unknown;
-  id: any;
+  _id: Key | null | undefined;
+  length: number;
+  map(arg0: (movie: { id: string | number; titleText: { text: string; }; primaryImage: { url: string; caption: { plainText: string; }; }; }, index: string | number) => React.JSX.Element): unknown;
+  id: string | number;
   titleText: {
     text: string;
   };
   primaryImage: {
-    url: any;
+    url: string;
     caption: {
       plainText: string;
     };

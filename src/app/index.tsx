@@ -163,9 +163,9 @@ export default function SignInScreen() {
       </>
     );
   } else {
-    const { signIn, session }: any = useMagicSession();
+    const { signIn, session }: any = useSession();
     React.useEffect(() => {
-      if (session) router.replace('/(app)/(mobile)');
+      if (typeof(session) === 'string') router.replace('/(app)/(mobile)');
     }, [session])
     return (
 

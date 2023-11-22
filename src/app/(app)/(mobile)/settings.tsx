@@ -7,9 +7,10 @@ import * as SecureStore from 'expo-secure-store';
 import InputField from '../../../components/InputField';
 
 import { useMagicSession } from '../../../auth/magicSdk';
+import { useSession } from '../../../auth/ctx';
 
 export default function SettingsScreen() {
-    const { signOut }: any = useMagicSession();
+    const { signOut, session }: any = useSession();
     const [connectedEmail, setConnectedEmail] = React.useState("")
 
     async function save() {
@@ -26,6 +27,7 @@ export default function SettingsScreen() {
       <View style={styles.container}>
         <Text style={styles.title}>Settings</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <Text style={styles.title}>Email: {session}</Text>
         <InputField
           label={connectedEmail ?? 'Connected Email'}
           icon={undefined}

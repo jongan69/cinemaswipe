@@ -13,10 +13,10 @@ import Web3 from 'web3'
 import { useStorageState } from '../resources/hooks/useStorageState';
 
 // MOBILE AUTH
-export const AuthContext = React.createContext<{ signIn: (email: string) => void; signOut: () => void; session?: string | null, isLoading: boolean; magicProps: any; web3?: any; } | null>(null);
+const MagicContext = React.createContext<{ signIn: (email: string) => void; signOut: () => void; session: string | null, isLoading: boolean; magicProps: any; web3?: any; } | null>(null);
 
 export function useMagicSession() {
-    const value = React.useContext(AuthContext);
+    const value = React.useContext(MagicContext);
     if (process.env.NODE_ENV !== 'production') {
         if (!value) {
             throw new Error('useSession must be wrapped in a <SessionProvider />');
@@ -74,7 +74,7 @@ export function MagicTools(props: React.PropsWithChildren) {
     };
 
     return (
-        <AuthContext.Provider
+        <MagicContext.Provider
             value={{
                 signIn: async (email: string) => {
                     // Perform sign-in logic here
@@ -84,7 +84,6 @@ export function MagicTools(props: React.PropsWithChildren) {
                         setSession(login.email);
                     } else {
                         alert(`Error Logging In ${login}`);
-                        setSession(null);
                     }
                 },
                 signOut: () => {
@@ -99,7 +98,7 @@ export function MagicTools(props: React.PropsWithChildren) {
                 <magic.Relayer />
                 {props.children}
             </SafeAreaProvider>
-        </AuthContext.Provider>
+        </MagicContext.Provider>
     );
 }
 
