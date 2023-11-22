@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 
 import ContentCard from '../../../components/ContentCard';
 import { Text, View } from '../../../components/Themed';
@@ -8,9 +8,9 @@ import React from 'react';
 
 import * as AppData from '../../../../app.json'
 import ListCard from '../../../components/ListCard';
-import usePagination from '../../../resources/hooks/usePagination';
 import { ExternalLink } from '../../../components/ExternalLink';
 import { IMovie } from '../../../types/Interfaces';
+import Pagination from '../../../components/web/Pagination.web';
 
 export default function WebNotifications() {
   const { session }: any = useSession();
@@ -60,9 +60,29 @@ export default function WebNotifications() {
   const [data, setData]: any = React.useState([])
 
   // for pagination
-  const PER_PAGE = 20;
-  const paginatedMatches = usePagination(data, PER_PAGE).currentData()
+  const PageSize = 20;
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const paginatedMatches = React.useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return data.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
 
+  function ListCard(props) {
+    return (
+      <View style={styles.listCard}>
+        <ExternalLink
+          href={`https://www.google.com/search?q=${props.item.movieTitle}`}>
+          <Image source={{ uri: props.item.image }} style={{ height: 50, width: 50 }} />
+          <Text
+            lightColor="rgba(0,0,0,0.8)"
+            darkColor="rgba(255,255,255,0.8)">
+            {props.item.movieTitle}
+          </Text>
+        </ExternalLink>
+      </View>
+    );
+  }
 
   function MovieList(props: { movies: any; }) {
     const movies = props.movies;
@@ -70,9 +90,7 @@ export default function WebNotifications() {
     return (
       <ul>
         {movies?.map((movie: IMovie) =>
-          <ExternalLink key={movie._id} href={`https://www.google.com/search?q=${movie.movieTitle}`}>
-            <ListCard key={movie._id} item={movie} />
-          </ExternalLink>
+          <ListCard key={movie._id} item={movie} />
         )}
       </ul>
     );
@@ -89,8 +107,22 @@ export default function WebNotifications() {
           subtitle={`You liked ${matches?.length} Movies`}
           link={`${AppData.expo.githubUrl}/blob/main/src/app/${segments[0]}/${segments[1] ? `${segments[1]}/` : ''}${segments[2] ? `${segments[2]}` : ''}.tsx`} linkText={''}
         />
+
       </View>
-      {paginatedMatches?.length > 0 && <MovieList movies={paginatedMatches} />}
+      <View style={{ alignItems:'center'}}>
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentPage}
+          totalCount={data.length}
+          pageSize={PageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
+      </View>
+      <View>
+        {paginatedMatches?.length > 0 && <MovieList movies={paginatedMatches} />}
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      </View>
+
     </>
   );
 }
@@ -109,5 +141,12 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+  },
+  listCard: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    height: 50,
+    width: '100%',
+    margin: 10
   },
 });

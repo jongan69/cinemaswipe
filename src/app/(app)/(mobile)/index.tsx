@@ -64,13 +64,8 @@ export default function HomeScreen() {
     }
   };
 
-  // API DATA Refs
-  // let movieKey = movies[page].movie.id
-  // let movieTitle = movies.movie.titleText.text
-  // let movieImageUrl  = movies.movie.primaryImage.url
-
-
   const getMovies = () => {
+    if(localXrapidApiKey) alert(`Using Movie API key: ${localXrapidApiKey}`)
     return axios
       .request(options)
       .then((res: { data: { results: React.SetStateAction<IMovie | undefined> }; }) => {
