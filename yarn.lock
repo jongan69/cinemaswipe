@@ -5623,10 +5623,10 @@ expo-web-browser@>=12.0.0:
     compare-urls "^2.0.0"
     url "^0.11.0"
 
-expo-web-browser@~12.3.2:
-  version "12.3.2"
-  resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-12.3.2.tgz#45ac727a5d8462d7faa403ea2fa1db160ed8e4b5"
-  integrity sha512-ohBf+vnRnGzlTleY8EQ2XQU0vRdRwqMJtKkzM9MZRPDOK5QyJYPJjpk6ixGhxdeoUG2Ogj0InvhhgX9NUn4jkg==
+expo-web-browser@~12.7.0:
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-12.7.0.tgz#eccca4ad1ab3376d212688e92560dca5ad6e9642"
+  integrity sha512-P5FEaZTZ58aa+nKV9FZzd2pDscWmMR/VxkYIsnPZ29XjeHGWqkQEEu0+Mxuy+JxybWjFdAsj/KcrnAcxuQrAnw==
   dependencies:
     compare-urls "^2.0.0"
     url "^0.11.0"
