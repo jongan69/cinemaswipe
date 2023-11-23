@@ -65,13 +65,16 @@ export default function HomeScreen() {
   };
 
   const getMovies = () => {
-    if(localXrapidApiKey) alert(`Using Movie API key: ${localXrapidApiKey}`)
+    if (localXrapidApiKey) alert(`Using Movie DB API key: ${localXrapidApiKey}`)
     return axios
       .request(options)
       .then((res: { data: { results: React.SetStateAction<IMovie | undefined> }; }) => {
         setMovies(res.data.results)
       })
-      .catch((err: any) => setError(err))
+      .catch((err: any) => {
+        setError(err)
+        alert(err)
+      })
   }
 
   React.useEffect(() => {
@@ -79,7 +82,7 @@ export default function HomeScreen() {
       const getAiDescription = async () => {
         setIsLoading(true)
         try {
-          console.log(`Calling GPT4 with ${localAiApiKey}` )
+          console.log(`Calling GPT4 with ${localAiApiKey}`)
           var url = "https://api.openai.com/v1/chat/completions";
           var bearer = `Bearer ${localAiApiKey}`
           await fetch(url, {
@@ -106,6 +109,7 @@ export default function HomeScreen() {
             })
           }).then((response: any) => response.json())
             .then((result: { choices: { message: { content: any; }; }[]; }) => {
+              alert(JSON.stringify(result))
               console.log(result.choices[0].message.content)
               setDescription(result.choices[0].message.content)
               setIsLoading(false);
@@ -115,6 +119,7 @@ export default function HomeScreen() {
               description
             ))
         } catch (e) {
+          alert(e)
           console.log(e);
         }
       }
