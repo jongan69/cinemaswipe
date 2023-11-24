@@ -13,6 +13,8 @@ import { useSession } from '../../../auth/ctx';
 
 const localAiApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
 const localXrapidApiKey = process.env.EXPO_PUBLIC_XRAPID_API_KEY || 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj'
+const aiurl = "https://api.openai.com/v1/chat/completions";
+const dburl = "https://moviesdatabase.p.rapidapi.com/titles/random";
 
 export default function HomeScreen() {
   const { session }: any = useSession();
@@ -54,7 +56,7 @@ export default function HomeScreen() {
   // Random Movie API
   const options = {
     method: 'GET',
-    url: 'https://moviesdatabase.p.rapidapi.com/titles/random',
+    url: dburl,
     params: {
       list: 'top_rated_series_250'
     },
@@ -65,13 +67,16 @@ export default function HomeScreen() {
   };
 
   const getMovies = () => {
-    if(localXrapidApiKey) alert(`Using Movie API key: ${localXrapidApiKey}`)
+    if (localXrapidApiKey) alert(`Using Movie DB API key: ${localXrapidApiKey}`)
     return axios
       .request(options)
       .then((res: { data: { results: React.SetStateAction<IMovie | undefined> }; }) => {
         setMovies(res.data.results)
       })
-      .catch((err: any) => setError(err))
+      .catch((err: any) => {
+        setError(err)
+        alert(err)
+      })
   }
 
   React.useEffect(() => {
@@ -79,10 +84,10 @@ export default function HomeScreen() {
       const getAiDescription = async () => {
         setIsLoading(true)
         try {
-          console.log(`Calling GPT4 with ${localAiApiKey}` )
-          var url = "https://api.openai.com/v1/chat/completions";
-          var bearer = `Bearer ${localAiApiKey}`
-          await fetch(url, {
+          alert(`Calling GPT4 with 'Bearer ${localAiApiKey}' at ${aiurl}`)
+          
+          const bearer = `Bearer ${localAiApiKey}`
+          await fetch(aiurl, {
             method: 'POST',
             headers: {
               'Authorization': bearer,
@@ -101,11 +106,11 @@ export default function HomeScreen() {
               "top_p": 1,
               "n": 1,
               "stream": false,
-
               "stop": "\n"
             })
           }).then((response: any) => response.json())
             .then((result: { choices: { message: { content: any; }; }[]; }) => {
+              alert(JSON.stringify(result))
               console.log(result.choices[0].message.content)
               setDescription(result.choices[0].message.content)
               setIsLoading(false);
@@ -115,6 +120,7 @@ export default function HomeScreen() {
               description
             ))
         } catch (e) {
+          alert(e)
           console.log(e);
         }
       }
