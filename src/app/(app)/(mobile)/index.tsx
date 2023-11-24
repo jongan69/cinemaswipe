@@ -12,9 +12,15 @@ import { IMovie } from '../../../types/Interfaces';
 import { useSession } from '../../../auth/ctx';
 
 const localAiApiKey = process.env.EXPO_PUBLIC_OPENAI_API_KEY || 'No Key'
-const localXrapidApiKey = process.env.EXPO_PUBLIC_XRAPID_API_KEY || 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj'
+const localMovieXrapidApiKey = process.env.EXPO_PUBLIC_XRAPID_API_KEY || 'HIYN33YPwamshwr94ZobUkgsCp4yp1AU8X8jsnG6vg7P62zjSj'
+
 const aiurl = "https://api.openai.com/v1/chat/completions";
-const dburl = "https://moviesdatabase.p.rapidapi.com/titles/random";
+
+const movieDbUrl = "https://moviesdatabase.p.rapidapi.com/titles/random";
+const movieDbHostHeader = "moviesdatabase.p.rapidapi.com";
+
+const recipeDbUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=vegetarian%2Cdessert&number=1'
+const recipeDbHostHeader = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 
 export default function HomeScreen() {
   const { session }: any = useSession();
@@ -56,18 +62,18 @@ export default function HomeScreen() {
   // Random Movie API
   const options = {
     method: 'GET',
-    url: dburl,
+    url: movieDbUrl,
     params: {
       list: 'top_rated_series_250'
     },
     headers: {
-      'X-RapidAPI-Key': localXrapidApiKey,
-      'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+      'X-RapidAPI-Key': localMovieXrapidApiKey,
+      'X-RapidAPI-Host': movieDbHostHeader
     }
   };
 
   const getMovies = () => {
-    if (localXrapidApiKey) alert(`Using Movie DB API key: ${localXrapidApiKey}`)
+    if (localMovieXrapidApiKey) alert(`Using Movie DB API key: ${localMovieXrapidApiKey}`)
     return axios
       .request(options)
       .then((res: { data: { results: React.SetStateAction<IMovie | undefined> }; }) => {
