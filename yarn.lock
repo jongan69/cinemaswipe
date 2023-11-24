@@ -2425,10 +2425,10 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-compose-refs" "1.0.0"
 
-"@react-native-async-storage/async-storage@1.18.2":
-  version "1.18.2"
-  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.18.2.tgz#ec8fd487a0b6c9500b43ece4b8779d1561f12e91"
-  integrity sha512-dM8AfdoeIxlh+zqgr0o5+vCTPQ0Ru1mrPzONZMsr7ufp5h+6WgNxQNza7t0r5qQ6b04AJqTlBNixTWZxqP649Q==
+"@react-native-async-storage/async-storage@1.19.4":
+  version "1.19.4"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.19.4.tgz#f3c8648fa6d06f085e30f68f0810ea8e53165ace"
+  integrity sha512-Stj6Q1v5knTMaYOinEEJl030SzJWEhqW+IYI5uA9Nl9Olo+vDUecmQXqpIxELucwOGDJ8KwvI0UL22UHudwZeQ==
   dependencies:
     merge-options "^3.0.4"
 
@@ -2603,10 +2603,10 @@
     prompts "^2.4.0"
     semver "^7.5.2"
 
-"@react-native-community/netinfo@9.3.10":
-  version "9.3.10"
-  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-9.3.10.tgz#9b6cc2aec9329b5ccf35e866094c43aa420d927a"
-  integrity sha512-OwnqoJUp/4sa9e3ju+wQavAa8l0fiA3DheeLMKzKxtKeAe0CA7bNxWRM752JvRQ6A/igPnt1V0zSlu5owvQEuA==
+"@react-native-community/netinfo@9.5.0":
+  version "9.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-9.5.0.tgz#93663bbb105feb8f729b8f0271ee06ffc009f024"
+  integrity sha512-sppTBobjvIlPYXyDAyb5WJoBaQq1hprnHj1PWICsA10mVnlmwX5ZVkgO2vGjsfFtb+fmWK9XtZF+aQ6ijqQcwg==
 
 "@react-native/assets-registry@^0.72.0":
   version "0.72.0"
@@ -5465,6 +5465,13 @@ expo-font@~11.4.0:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-font@~11.8.0:
+  version "11.8.0"
+  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-11.8.0.tgz#f0fdd747ac295e4a4006a8d765c778345d37b31d"
+  integrity sha512-9dE7mvvh1PdEGdQ0weEYFQkPcDjRt8IwZK0yjgX3C8Gly5d+40Ke20XALGnZWaggc8Nc5W5DVV4pZTozAbXRvg==
+  dependencies:
+    fontfaceobserver "^2.1.0"
+
 expo-head@0.0.19:
   version "0.0.19"
   resolved "https://registry.yarnpkg.com/expo-head/-/expo-head-0.0.19.tgz#13bcf0a85e6f1a48e7a02d1a277296a607e44946"
@@ -5623,10 +5630,10 @@ expo-web-browser@>=12.0.0:
     compare-urls "^2.0.0"
     url "^0.11.0"
 
-expo-web-browser@~12.3.2:
-  version "12.3.2"
-  resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-12.3.2.tgz#45ac727a5d8462d7faa403ea2fa1db160ed8e4b5"
-  integrity sha512-ohBf+vnRnGzlTleY8EQ2XQU0vRdRwqMJtKkzM9MZRPDOK5QyJYPJjpk6ixGhxdeoUG2Ogj0InvhhgX9NUn4jkg==
+expo-web-browser@~12.7.0:
+  version "12.7.0"
+  resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-12.7.0.tgz#eccca4ad1ab3376d212688e92560dca5ad6e9642"
+  integrity sha512-P5FEaZTZ58aa+nKV9FZzd2pDscWmMR/VxkYIsnPZ29XjeHGWqkQEEu0+Mxuy+JxybWjFdAsj/KcrnAcxuQrAnw==
   dependencies:
     compare-urls "^2.0.0"
     url "^0.11.0"
@@ -9256,10 +9263,10 @@ react-native-reanimated@~3.5.4:
     convert-source-map "^2.0.0"
     invariant "^2.2.4"
 
-react-native-safe-area-context@4.6.3:
-  version "4.6.3"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.6.3.tgz#f06cfea05b1c4b018aa9758667a109f619c62b55"
-  integrity sha512-3CeZM9HFXkuqiU9HqhOQp1yxhXw6q99axPWrT+VJkITd67gnPSU03+U27Xk2/cr9XrLUnakM07kj7H0hdPnFiQ==
+react-native-safe-area-context@4.7.4:
+  version "4.7.4"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.7.4.tgz#3dd8438971e70043d76f2428ede75b8a9639265e"
+  integrity sha512-3LR3DCq9pdzlbq6vsHGWBFehXAKDh2Ljug6jWhLWs1QFuJHM6AS2+mH2JfKlB2LqiSFZOBcZfHQFz0sGaA3uqg==
 
 react-native-screens@~3.22.0:
   version "3.22.1"
