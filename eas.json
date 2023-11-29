@@ -3,6 +3,11 @@
     "version": ">= 5.8.0"
   },
   "build": {
+    "preview_debug": {
+      "env": {
+        "EX_UPDATES_NATIVE_DEBUG": "1"
+      }
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal",
