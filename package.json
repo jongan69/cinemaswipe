@@ -22,7 +22,7 @@
     "@heroicons/react": "^2.0.18",
     "@magic-ext/auth": "^4.2.0",
     "@magic-ext/bitcoin": "^16.2.0",
-    "@magic-ext/gdkms": "^4.2.0",
+    "@magic-ext/gdkms": "^4.4.1",
     "@magic-ext/react-native-expo-oauth": "^17.0.0",
     "@magic-sdk/react-native-expo": "^22.3.0",
     "@react-native-async-storage/async-storage": "1.19.4",
