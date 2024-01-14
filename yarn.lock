@@ -2209,10 +2209,10 @@
   resolved "https://registry.yarnpkg.com/@magic-ext/bitcoin/-/bitcoin-16.5.0.tgz#951200c7adf650a23f755a695529da6a3e7bb209"
   integrity sha512-FYz8+DJWHdRT4f1xbltZakYORfxYiTQ+e4lr4489icFpy7ApIswnum9s9AHJh9bDz/9dODptxzyl12+jG4bViA==
 
-"@magic-ext/gdkms@^4.2.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-4.3.0.tgz#11a452a49b65dffed9f6164be286668c6686ad5f"
-  integrity sha512-m4qL7CiY1kc9e/sfB5zCIdWqRuSmIu/l6VTJT3T222PyPTvjUEGvaQxV6rK9X6p1QzXuylS1iaqOUrwmlIXm2A==
+"@magic-ext/gdkms@^4.4.1":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@magic-ext/gdkms/-/gdkms-4.5.0.tgz#72a69a310330df77afcf658ecbe03789a0a7154e"
+  integrity sha512-0mwR1zLpqoFX3oDdSBUZdibYX87q/rpDmXERBa0TQeYQLCoGbmNbT5n0tbN0wncZW3D6MtzMbHg2hZ2q/EbH5Q==
 
 "@magic-ext/react-native-expo-oauth@^17.0.0":
   version "17.1.0"
