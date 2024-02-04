@@ -5808,10 +5808,10 @@ expo-router@^2.0.13:
     schema-utils "^4.0.1"
     url "^0.11.0"
 
-expo-secure-store@~12.3.1:
-  version "12.3.1"
-  resolved "https://registry.yarnpkg.com/expo-secure-store/-/expo-secure-store-12.3.1.tgz#7e5ba94f6e7374f132108c9feb5cc811568f3db6"
-  integrity sha512-XLIgWDiIuiR0c+AA4NCWWibAMHCZUyRcy+lQBU49U6rvG+xmd3YrBJfQjfqAPyLroEqnLPGTWUX57GyRsfDOQw==
+expo-secure-store@~12.8.1:
+  version "12.8.1"
+  resolved "https://registry.yarnpkg.com/expo-secure-store/-/expo-secure-store-12.8.1.tgz#369a570702fa1dc0c49ea41a5ab18aca2a986d38"
+  integrity sha512-Ju3jmkHby4w7rIzdYAt9kQyQ7HhHJ0qRaiQOInknhOLIltftHjEgF4I1UmzKc7P5RCfGNmVbEH729Pncp/sHXQ==
 
 expo-splash-screen@~0.20.2:
   version "0.20.5"
@@ -5837,10 +5837,10 @@ expo-structured-headers@~3.7.0:
   resolved "https://registry.yarnpkg.com/expo-structured-headers/-/expo-structured-headers-3.7.2.tgz#2bccba6af090ba2cc82295f7ec695058530b399f"
   integrity sha512-/nGOyeWUXSUy4aIYKJTwQOznRNs0yKqKPAyEE6jtwvOl9qvfDWx9xskNtShioggBhFAssFkV6RBbPn+xZMQtvw==
 
-expo-system-ui@~2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/expo-system-ui/-/expo-system-ui-2.4.0.tgz#bf809172726cf661ab4f526129eb427bb5f6e4d4"
-  integrity sha512-uaBAYeQtFzyE8WVcch2V3G243xvOf7vJkLzrIJ3rJ8NA3uZRmxF0lMMe75oMrAaLVXyr1Z+ZE6UZwh7x49FuIg==
+expo-system-ui@~2.9.2:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/expo-system-ui/-/expo-system-ui-2.9.3.tgz#845c7615a6ede9d959dff1719df3d9392a43c080"
+  integrity sha512-RNFNBLJ9lhnjOGrHhtfDc15Ry/lF+SA4kwulmHzYGqaTeYvsL9q0K0+m9qmxuDdrbKJkuurvzvjVylDNnKNFVg==
   dependencies:
     "@react-native/normalize-color" "^2.0.0"
     debug "^4.3.2"
